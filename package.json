@@ -9,6 +9,11 @@
   },
   "author": "",
   "license": "ISC",
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
   "devDependencies": {
     "autoprefixer": "^6.4.1",
     "babel-core": "^6.11.4",

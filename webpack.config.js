@@ -36,7 +36,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             hash: true,
-            title: 'ERP Project',
+            title: 'Todo App',
             inject: false,
             template: HtmlTemplate,
             appMountId: 'app',

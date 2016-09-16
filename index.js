@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Router, browserHistory } from 'react-router';
-import $ from 'jquery';
 import Header from './src/components/header';
 import Searchbar from './src/components/search_bar';
+import IncompleteTasks from './src/components/incomplete_tasks';
+import Api from './api';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,27 +12,23 @@ class App extends React.Component {
 
     this.state = {
       todos: []
-    }
+    };
 
     this.getTodos();
   }
 
   getTodos() {
-    $.getJSON(`http://localhost:3000/todos/callback=?`, function(data) {
+    const api = new Api();
 
-      this.setState({
-        todos: data
-      });
-    });
+    api.get('https://localhost:3000/todos?callback=?');
 
-    console.log(this.state.todos);
   }
 
   render() {
     return (
       <div>
         <Header /> 
-        {this.state.todos}
+        <IncompleteTasks />
       </div>
     );
   }

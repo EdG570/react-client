@@ -1,52 +1,22 @@
-var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var HtmlTemplate = require('html-webpack-template');
+var htmlWebpackPlugin = require('html-webpack-plugin');
+var htmlWebpackPluginConfig = new htmlWebpackPlugin({
+    template: __dirname + '/src/index.html',
+    filename: 'index.html',
+    inject: 'body'
+});
 
 module.exports = {
     entry: [
-        './src/index.js',
-        'webpack/hot/dev-server'
+        './src/index.js'
     ],
-    module: {
-        loaders: [{
-            test: /\.jsx?$/,
-            exclude: /node_modules/,
-            loader: 'react-hot!babel'
-        }, {
-            test: /\.css$/,
-            loader: 'style!css!postcss'
-        }]
-    },
-    resolve: {
-        extensions: ['', '.js', '.jsx']
-    },
     output: {
-        path: 'dist',
-        publicPath: '/',
-        filename: 'bundle.js'
+        path: __dirname + '/dist',
+        filename: "index_bundle.js"
     },
-    devServer: {
-        contentBase: './dist',
-        historyApiFallback: true,
-        hot: true
+    module: {
+        loaders: [
+            {test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"}
+        ]
     },
-    devtool: 'source-map',
-    plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new HtmlWebpackPlugin({
-            hash: true,
-            title: 'Todo App',
-            inject: false,
-            template: HtmlTemplate,
-            appMountId: 'app',
-            mobile: true,
-            minify: {
-                collapseWhitespace: true
-            }
-        })
-    ],
-    postcss: function () {
-        return [autoprefixer];
-    }
+    plugins: [htmlWebpackPluginConfig]
 };

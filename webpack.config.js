@@ -5,7 +5,7 @@ var HtmlTemplate = require('html-webpack-template');
 
 module.exports = {
     entry: [
-        './index.js',
+        './src/index.js',
         'webpack/hot/dev-server'
     ],
     module: {

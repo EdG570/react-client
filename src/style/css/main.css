@@ -434,7 +434,7 @@ button {
   color: blue;
   text-decoration: none;
   display: block;
-  width: 100%;
+  width: 148px;
   margin: 0 auto;
   text-align: center;
   margin-bottom: 1em; }
@@ -458,3 +458,22 @@ h1, h3 {
 
 #pw-logo {
   margin-bottom: 2em; }
+
+#header-section {
+  background: url("../../assets/header-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: none;
+  padding: 7em 0; }
+  #header-section img {
+    max-width: 22em;
+    width: 100%; }
+  #header-section h3 {
+    max-width: 450px;
+    width: 90%;
+    line-height: 1.4;
+    font-family: 'Lato', sans-serif;
+    font-weight: 200;
+    color: #ddd;
+    display: block;
+    margin: 1em auto 0 auto; }

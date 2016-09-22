@@ -22,5 +22,25 @@
     color: #ddd;
     display: block;
     margin: 1em auto 0 auto;
+    text-align: center;
+  }
+
+  a {
+    border: 1px solid #fff;
+    padding: 0.75em 0;
+    max-width: 450px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    margin-top: 1em;
+    font-size: 1.5em;
+    transition: 0.5s ease;
+  }
+
+  a:hover {
+    background-color: #fff;
+    color: #3887A6;
+    transition: 0.5s ease;
   }
 }

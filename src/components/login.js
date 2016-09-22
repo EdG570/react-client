@@ -12,19 +12,23 @@ class UserLogin extends Component {
 
     return (
       <div>
-        <form onSubmit={handleSubmit}>
-          <h3>Sign In or Create a New Account</h3>
+        <h1>Sign In</h1>
 
-          <div>
+        <form onSubmit={handleSubmit}>
+          <div className="clearfix">
+            <img src="../src/assets/envelope.svg" alt="Email icon"/>
             <Field placeholder="email" component="input" type="text" name="email" {...email} />
           </div>
 
-          <div>
+          <div className="clearfix">
+            <img src="../src/assets/locked.svg" alt="Password icon"/>
             <Field placeholder="Password" component="input" type="text" name="password" {...password}/>
           </div>
 
-          <button type="submit">Sign In</button>
-          <Link to="/forgotpassword" className="password-reset">Forgot your password?</Link>
+          <div>
+            <button type="submit">Sign In</button>
+            <Link to="/forgotpassword" className="password-reset">Forgot your password?</Link>
+          </div>
         </form>
         <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
       </div>

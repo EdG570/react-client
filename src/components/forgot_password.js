@@ -18,14 +18,17 @@ class PasswordReset extends Component {
             on how to reset your password.</p>
           </div>
 
-          <div>
+          <div className="clearfix">
+            <img src="../src/assets/envelope.svg" alt="Email icon"/>
             <Field placeholder="email" component="input" type="text" name="email" {...email} />
           </div>
 
-          <button type="submit">Reset Password</button>
+          <div>
+            <button type="submit">Reset Password</button>
+          </div>
         </form>
 
-        <p>Have an account already? <Link to="/">Sign In</Link></p>
+        <p>Already have an account? <Link to="/">Sign In</Link></p>
       </div>
     );
   }

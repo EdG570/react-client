@@ -14,27 +14,32 @@ class SignUp extends Component {
 
     return (
       <div>
-        <form onSubmit={handleSubmit}>
-          <h3>Sign Up</h3>
+        <h1>Sign Up</h1>
 
-          <div>
+        <form onSubmit={handleSubmit}>
+          <div className="clearfix">
+            <img src="../src/assets/avatar.svg" alt="Name icon"/>
             <Field placeholder="Name" component="input" type="text" name="name" {...name}/>
           </div>
 
-          <div>
+          <div className="clearfix">
+            <img src="../src/assets/envelope.svg" alt="Email icon"/>
             <Field placeholder="email" component="input" type="text" name="email" {...email} />
           </div>
 
-          <div>
+          <div className="clearfix">
+            <img src="../src/assets/locked.svg" alt="Password icon"/>
             <Field placeholder="Password" component="input" type="text" name="password" {...password}/>
           </div>
 
-          <div>
+          <div className="clearfix">
+            <img src="../src/assets/confirm.svg" alt="Confirm password icon"/>
             <Field placeholder="Confirm password" component="input" type="text" name="passwordConfirm" {...passwordConfirm}/>
           </div>
 
-          <button type="submit">Sign Up</button>
-          <Link to="/forgotpassword" className="password-reset">Forgot your password?</Link>
+          <div>
+            <button type="submit">Sign Up</button>
+          </div>
         </form>
         <p>Already have an account? <Link to="/">Sign In</Link></p>
       </div>

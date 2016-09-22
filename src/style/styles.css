@@ -1,6 +1,7 @@
 /* ----- User Login ------- */
 body {
   background-color: #fafafa;
+  padding-top: 5em;
 }
 
 a {
@@ -8,17 +9,53 @@ a {
   color: blue;
 }
 
+p {
+  line-height: 1.4;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
 form {
-  width: 350px;
+  width: 90%;
+  max-width: 350px;
   margin: 0 auto;
   background-color: #fff;
-  border: 2px solid #ccc;
+  /*border: 2px solid #ddd;*/
 }
 
 input[type="text"] {
-  width: 100%;
+  width: 80%;
+  float: right;
   padding: 1em 0;
   font-size: 1.2em;
+  border: none;
+  margin: 0;
+  color: #555;
+}
+
+form > div {
+  position: relative;
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+form p {
+  color: #aaa;
 }
 
 button {
@@ -27,20 +64,30 @@ button {
   margin: 1em auto;
   font-size: 1.2em;
   padding: 0.5em 0;
+  color: #fff;
+  background-color: dodgerblue;
+  border: none;
 }
 
 .password-reset {
   color: blue;
   text-decoration: none;
-  display: inline-block;
+  display: block;
   width: 148px;
   margin: 0 auto;
   text-align: center;
   margin-bottom: 1em;
 }
 
+form img {
+  width: 35px;
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+
 /* ------- Password Reset ----------*/
 
-h3, p {
+h1, p, h3 {
   text-align: center
 }

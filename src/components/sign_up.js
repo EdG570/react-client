@@ -13,7 +13,7 @@ class SignUp extends Component {
     const name = this.props.fields.name;
 
     return (
-      <div>
+      <div className="login-section">
         <img src="../src/assets/logo.svg" alt="Simplexity logo"/>
         <h1>Get Simplexity for free</h1>
 

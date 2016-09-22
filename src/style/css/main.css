@@ -365,8 +365,7 @@ textarea {
   /* 2 */ }
 
 body {
-  background-color: #fafafa;
-  padding-top: 5em; }
+  background-color: #fafafa; }
 
 a {
   text-decoration: none;
@@ -396,84 +395,121 @@ button:focus {
 .clearfix:after {
   clear: both; }
 
-form {
-  width: 90%;
-  max-width: 350px;
-  margin: 0 auto;
-  background-color: #fff;
-  /*border: 2px solid #ddd;*/ }
-
-input[type="text"] {
-  width: 80%;
-  float: right;
-  padding: 1em 0;
-  font-size: 1.2em;
-  border: none;
-  margin: 0;
-  color: #555; }
-
-form > div {
-  position: relative;
-  border: 1px solid #ddd;
-  width: 100%; }
-
-form p {
-  color: #aaa; }
-
-button {
-  width: 90%;
-  display: block;
-  margin: 1em auto;
-  font-size: 1.2em;
-  padding: 0.5em 0;
-  color: #fff;
-  background-color: dodgerblue;
-  border: none; }
-
-.password-reset {
-  color: blue;
-  text-decoration: none;
-  display: block;
-  width: 148px;
-  margin: 0 auto;
-  text-align: center;
-  margin-bottom: 1em; }
-
-form img {
-  width: 35px;
-  position: absolute;
-  top: 1em;
-  left: 1em; }
-
-img {
-  width: 5em;
-  display: block;
+.container {
+  max-width: 1250px;
   margin: 0 auto; }
 
-h1, p, h3 {
-  text-align: center; }
-
-h1, h3 {
-  color: #444; }
-
-#pw-logo {
-  margin-bottom: 2em; }
+.login-section {
+  padding-top: 7em; }
+  .login-section form {
+    width: 90%;
+    max-width: 350px;
+    margin: 0 auto;
+    background-color: #fff; }
+  .login-section input[type="text"] {
+    width: 80%;
+    float: right;
+    padding: 1em 0;
+    font-size: 1.2em;
+    border: none;
+    margin: 0;
+    color: #555; }
+  .login-section form > div {
+    position: relative;
+    border: 1px solid #ddd;
+    width: 100%; }
+  .login-section form p {
+    color: #aaa; }
+  .login-section button {
+    width: 90%;
+    display: block;
+    margin: 1em auto;
+    font-size: 1.2em;
+    padding: 0.5em 0;
+    color: #fff;
+    background-color: dodgerblue;
+    border: none; }
+  .login-section .password-reset {
+    color: blue;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 1em; }
+  .login-section form img {
+    width: 35px;
+    position: absolute;
+    top: 1em;
+    left: 1em; }
+  .login-section img {
+    width: 5em;
+    display: block;
+    margin: 0 auto; }
+  .login-section h1, .login-section p, .login-section h3 {
+    text-align: center; }
+  .login-section h1, .login-section h3 {
+    color: #444; }
+  .login-section #pw-logo {
+    margin-bottom: 2em; }
 
 #header-section {
   background: url("../../assets/header-background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: none;
-  padding: 7em 0; }
+  background-color: #3887A6;
+  padding: 7em 1em; }
   #header-section img {
     max-width: 22em;
-    width: 100%; }
+    width: 100%;
+    display: block;
+    margin: 0 auto; }
   #header-section h3 {
     max-width: 450px;
-    width: 90%;
+    width: 100%;
     line-height: 1.4;
     font-family: 'Lato', sans-serif;
     font-weight: 200;
     color: #ddd;
     display: block;
     margin: 1em auto 0 auto; }
+
+#nav-section {
+  background-color: #fff;
+  padding: 0.5em; }
+  #nav-section a {
+    border: 1px solid #3887A6;
+    padding: 0.5em 1em;
+    font-weight: 200;
+    letter-spacing: 1px;
+    margin: 1em 0; }
+  #nav-section img {
+    display: none; }
+    @media screen and (min-width: 768px) {
+      #nav-section img {
+        display: inline-block;
+        width: 3em; } }
+  @media screen and (min-width: 768px) {
+    #nav-section .container div:first-child {
+      float: left; } }
+  #nav-section .container div:last-child {
+    padding: 1em 0;
+    text-align: center; }
+    @media screen and (min-width: 768px) {
+      #nav-section .container div:last-child {
+        float: right;
+        padding-top: 1em; } }
+    #nav-section .container div:last-child a:first-child {
+      margin-right: 1em;
+      background-color: #fff;
+      border: 1px solid #aaa;
+      color: #777; }
+    #nav-section .container div:last-child a:first-child:hover {
+      background-color: #eee; }
+    #nav-section .container div:last-child a:last-child {
+      background-color: #ffa500;
+      color: #fff;
+      border: none; }
+    #nav-section .container div:last-child a:last-child:hover {
+      background-color: #ff9304; }

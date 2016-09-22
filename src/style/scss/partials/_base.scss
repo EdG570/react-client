@@ -1,6 +1,5 @@
 body {
   background-color: #fafafa;
-  padding-top: 5em;
 }
 
 a {
@@ -36,4 +35,9 @@ button:focus {
 
 .clearfix:after {
   clear: both;
+}
+
+.container {
+  max-width: 1250px;
+  margin: 0 auto;
 }

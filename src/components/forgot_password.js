@@ -10,7 +10,7 @@ class PasswordReset extends Component {
     const email = this.props.fields.email;
 
     return (
-      <div>
+      <div className="login-section">
         <img src="../src/assets/logo.svg" id="pw-logo" alt="Simplexity logo"/>
 
         <form onSubmit={handleSubmit}>

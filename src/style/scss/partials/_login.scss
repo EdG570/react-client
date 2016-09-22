@@ -1,73 +1,76 @@
-form {
-  width: 90%;
-  max-width: 350px;
-  margin: 0 auto;
-  background-color: #fff;
-  /*border: 2px solid #ddd;*/
-}
+.login-section {
+  padding-top: 7em;
 
-input[type="text"] {
-  width: 80%;
-  float: right;
-  padding: 1em 0;
-  font-size: 1.2em;
-  border: none;
-  margin: 0;
-  color: #555;
-}
+  form {
+    width: 90%;
+    max-width: 350px;
+    margin: 0 auto;
+    background-color: #fff;
+  }
 
-form > div {
-  position: relative;
-  border: 1px solid #ddd;
-  width: 100%;
-}
+  input[type="text"] {
+    width: 80%;
+    float: right;
+    padding: 1em 0;
+    font-size: 1.2em;
+    border: none;
+    margin: 0;
+    color: #555;
+  }
 
-form p {
-  color: #aaa;
-}
+  form > div {
+    position: relative;
+    border: 1px solid #ddd;
+    width: 100%;
+  }
 
-button {
-  width: 90%;
-  display: block;
-  margin: 1em auto;
-  font-size: 1.2em;
-  padding: 0.5em 0;
-  color: #fff;
-  background-color: dodgerblue;
-  border: none;
-}
+  form p {
+    color: #aaa;
+  }
 
-.password-reset {
-  color: blue;
-  text-decoration: none;
-  display: block;
-  width: 148px;
-  margin: 0 auto;
-  text-align: center;
-  margin-bottom: 1em;
-}
+  button {
+    width: 90%;
+    display: block;
+    margin: 1em auto;
+    font-size: 1.2em;
+    padding: 0.5em 0;
+    color: #fff;
+    background-color: dodgerblue;
+    border: none;
+  }
 
-form img {
-  width: 35px;
-  position: absolute;
-  top: 1em;
-  left: 1em;
-}
+  .password-reset {
+    color: blue;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 1em;
+  }
 
-img {
-  width: 5em;
-  display: block;
-  margin: 0 auto;
-}
+  form img {
+    width: 35px;
+    position: absolute;
+    top: 1em;
+    left: 1em;
+  }
 
-h1, p, h3 {
-  text-align: center
-}
+  img {
+    width: 5em;
+    display: block;
+    margin: 0 auto;
+  }
 
-h1, h3 {
-  color: #444;
-}
+  h1, p, h3 {
+    text-align: center
+  }
 
-#pw-logo {
-  margin-bottom: 2em;
+  h1, h3 {
+    color: #444;
+  }
+
+  #pw-logo {
+    margin-bottom: 2em;
+  }
 }

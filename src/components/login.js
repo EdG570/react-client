@@ -11,7 +11,7 @@ class UserLogin extends Component {
     const password = this.props.fields.password;
 
     return (
-      <div>
+      <div className="login-section">
         <img src="../src/assets/logo.svg" alt="Simplexity logo"/>
         <h1>Sign In</h1>
 

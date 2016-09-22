@@ -3,11 +3,14 @@
   background-size: cover;
   background-position: center;
   background-repeat: none;
+  background-color: #3887A6;
   padding: 7em 1em;
 
   img {
     max-width: 22em;
     width: 100%;
+    display: block;
+    margin: 0 auto;
   }
 
   h3 {

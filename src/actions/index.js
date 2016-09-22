@@ -9,3 +9,11 @@ export function logUserIn() {
   }
   return;
 };
+
+export function resetPassword() {
+
+};
+
+export function postNewUser() {
+
+};

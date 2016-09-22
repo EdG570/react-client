@@ -18,7 +18,7 @@ class UserLogin extends Component {
         <form onSubmit={handleSubmit}>
           <div className="clearfix">
             <img src="../src/assets/envelope.svg" alt="Email icon"/>
-            <Field placeholder="email" component="input" type="text" name="email" {...email} />
+            <Field placeholder="Email" component="input" type="text" name="email" {...email} />
           </div>
 
           <div className="clearfix">

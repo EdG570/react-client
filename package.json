@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --inline",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass" : "node-sass src/style/scss/main.scss src/style/css/main.css"
   },
   "author": "",
   "license": "ISC",

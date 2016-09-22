@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import Header from './home/header';
 import Nav from './home/nav';
 import Features from './home/features';
+import Footer from './home/footer';
 
 export default class Home extends Component {
   render() {
@@ -12,6 +13,7 @@ export default class Home extends Component {
         <Nav />
         <Header />
         <Features />
+        <Footer />
       </div>
     );
   }

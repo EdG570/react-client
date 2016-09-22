@@ -364,6 +364,10 @@ textarea {
   font: inherit;
   /* 2 */ }
 
+html {
+  box-sizing: border-box;
+  height: 100%; }
+
 body {
   background-color: #fafafa; }
 
@@ -541,10 +545,21 @@ button:focus {
     padding: 0 1em;
     margin: 0 auto; }
   #features-section img {
-    max-width: 7em; }
+    max-width: 7em;
+    color: #4bc0ea; }
   #features-section p {
     font-weight: 200; }
   #features-section h2 {
     font-weight: 300;
     font-size: 2em;
     margin-bottom: 0; }
+
+.footer-section {
+  width: 100%;
+  text-align: center;
+  background-color: #333;
+  color: #eeeeee;
+  padding: 2em 0; }
+  .footer-section p {
+    margin: 0;
+    font-weight: 200; }

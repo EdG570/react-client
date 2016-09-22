@@ -11,6 +11,8 @@ class PasswordReset extends Component {
 
     return (
       <div>
+        <img src="../src/assets/logo.svg" id="pw-logo" alt="Simplexity logo"/>
+
         <form onSubmit={handleSubmit}>
           <div>
             <h3>Forgot your password?</h3>
@@ -28,7 +30,7 @@ class PasswordReset extends Component {
           </div>
         </form>
 
-        <p>Already have an account? <Link to="/">Sign In</Link></p>
+        <p>Already have an account? <Link to="/signin">Sign In</Link></p>
       </div>
     );
   }

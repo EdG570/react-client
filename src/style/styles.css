@@ -9,8 +9,17 @@ a {
   color: blue;
 }
 
-p {
+p, span {
+  font-family: 'Lato', sans-serif;
   line-height: 1.4;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Roboto', sans-serif;
+}
+
+p, h1, h2, h3, h4, h5 {
+  letter-spacing: 1px;
 }
 
 input:focus,
@@ -86,8 +95,22 @@ form img {
   left: 1em;
 }
 
+img {
+  width: 5em;
+  display: block;
+  margin: 0 auto;
+}
+
 /* ------- Password Reset ----------*/
 
 h1, p, h3 {
   text-align: center
+}
+
+h1, h3 {
+  color: #444;
+}
+
+#pw-logo {
+  margin-bottom: 2em;
 }

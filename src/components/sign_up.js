@@ -14,7 +14,8 @@ class SignUp extends Component {
 
     return (
       <div>
-        <h1>Sign Up</h1>
+        <img src="../src/assets/logo.svg" alt="Simplexity logo"/>
+        <h1>Get Simplexity for free</h1>
 
         <form onSubmit={handleSubmit}>
           <div className="clearfix">
@@ -41,7 +42,7 @@ class SignUp extends Component {
             <button type="submit">Sign Up</button>
           </div>
         </form>
-        <p>Already have an account? <Link to="/">Sign In</Link></p>
+        <p>Already have an account? <Link to="/signin">Sign In</Link></p>
       </div>
     );
   }

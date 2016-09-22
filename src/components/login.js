@@ -12,6 +12,7 @@ class UserLogin extends Component {
 
     return (
       <div>
+        <img src="../src/assets/logo.svg" alt="Simplexity logo"/>
         <h1>Sign In</h1>
 
         <form onSubmit={handleSubmit}>

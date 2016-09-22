@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { getLists } from '../actions/index';
+
 
 export default class Home extends Component {
   render() {
@@ -11,3 +13,6 @@ export default class Home extends Component {
     );
   }
 };
+
+
+

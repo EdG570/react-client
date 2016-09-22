@@ -1,14 +1,22 @@
 import axios from 'axios';
 
-export function logUserIn() {
-  const request = axios.get(`${ROOT_URL}/posts${API_KEY}`);
+const rootUrl = 'http://localhost:3000';
+const lists = '/lists';
 
-  return {
-    type: USER_LOGIN,
-    payload: request
-  }
-  return;
+export function logUserIn() {
+
+
 };
+
+// export function getLists() {
+//   const request = axios.get(`${rootUrl}${lists}`);
+//   console.log(request);
+//
+//   return {
+//     type: 'FETCH_LISTS',
+//     payload: request
+//   }
+// }
 
 export function resetPassword() {
 

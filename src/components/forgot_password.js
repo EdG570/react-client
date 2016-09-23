@@ -10,10 +10,13 @@ class PasswordReset extends Component {
     super(props);
 
     this.state = {
-      email: ''
-    }
+      email: '',
+      valid: false,
+      errors: {}
+    };
 
     this.updateState = this.updateState.bind(this);
+    this.validate = this.validate.bind(this);
   }
 
   updateState() {
@@ -22,16 +25,35 @@ class PasswordReset extends Component {
     this.setState({ email: inputVal.value });
   }
 
+  validate(e) {
+    const inputErrors = {};
+
+    if (!this.state.email) {
+      inputErrors.email = 'Required: Please enter your email';
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(this.state.email)) {
+      inputErrors.email = 'Invalid email address';
+    }
+
+    if (Object.keys(inputErrors).length === 0) {
+      this.setState({valid: true, errors: inputErrors});
+    } else {
+      this.setState({valid: false, errors: inputErrors});
+      e.preventDefault();
+    }
+
+  }
+
   render() {
     return (
       <div className="login-section">
         <img src="../src/assets/logo.svg" id="pw-logo" alt="Simplexity logo"/>
 
-        <form>
+        <form onSubmit={this.validate}>
           <div>
             <h3>Forgot your password?</h3>
             <p>No worries. Just enter your email address below and we'll send you instructions
             on how to reset your password.</p>
+            { Object.keys(this.state.errors).length > 0 ? <p className="error-msg">{this.state.errors.email}</p> : null }
           </div>
 
           <div className="clearfix">
@@ -48,18 +70,6 @@ class PasswordReset extends Component {
       </div>
     );
   }
-}
-
-function validate(values) {
-  const errors = {};
-
-  if (!values.email) {
-    errors.email = 'Required: Please enter your email';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = 'Invalid email address';
-  }
-
-  return errors;
 }
 
 function mapDispatchToProps(dispatch) {

@@ -403,6 +403,10 @@ button:focus {
   max-width: 1250px;
   margin: 0 auto; }
 
+p.error-msg {
+  color: red;
+  font-style: italic; }
+
 .login-section {
   padding-top: 7em; }
   .login-section form {
@@ -422,7 +426,7 @@ button:focus {
     position: relative;
     border: 1px solid #ddd;
     width: 100%; }
-  .login-section form p {
+  .login-section p {
     color: #aaa; }
   .login-section button {
     width: 90%;

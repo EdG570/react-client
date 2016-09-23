@@ -10,16 +10,11 @@ export function logUserIn() {
   const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_API_KEY}`;
   const request = axios.get(weatherUrl);
 
-  console.log(request);
-  console.log(request);
-
   return {
     type: 'FETCH_WEATHER',
     payload: request
   }
 };
-
-
 
 export function resetPassword() {
 

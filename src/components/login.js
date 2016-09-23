@@ -27,6 +27,7 @@ class UserLogin extends Component {
           </div>
 
           <div>
+            <Link to="/todos">Fake Sign In</Link>
             <button type="submit">Sign In</button>
             <Link to="/forgotpassword" className="password-reset">Forgot your password?</Link>
           </div>

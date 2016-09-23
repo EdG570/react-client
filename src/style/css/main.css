@@ -564,3 +564,41 @@ button:focus {
   .footer-section p {
     margin: 0;
     font-weight: 200; }
+
+#user-container {
+  height: 100vh;
+  max-width: 300px;
+  background-color: #1f4f60; }
+
+.user-detail {
+  text-align: center;
+  border-bottom: 1px solid #aaa;
+  padding: 2em 0; }
+  .user-detail img {
+    border-radius: 50%;
+    border: 3px solid #fff; }
+  .user-detail h3 {
+    font-weight: 200;
+    color: #fff;
+    margin-bottom: 0; }
+
+#user-lists {
+  color: #fff;
+  padding-left: 100px; }
+  #user-lists ul {
+    list-style: none;
+    padding-left: 0; }
+    #user-lists ul li {
+      font-weight: 200;
+      padding: 0.5em 0;
+      letter-spacing: 2px; }
+  #user-lists h2 {
+    letter-spacing: 2px; }
+  #user-lists a {
+    font-size: 1.2em;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px;
+    font-weight: 200; }
+  #user-lists a:hover {
+    cursor: pointer; }

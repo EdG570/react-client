@@ -1,0 +1,31 @@
+#user-lists {
+  color: #fff;
+  padding-left: 100px;
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      font-weight: 200;
+      padding: 0.5em 0;
+      letter-spacing: 2px;
+    }
+  }
+
+  h2 {
+    letter-spacing: 2px;
+  }
+
+  a {
+    font-size: 1.2em;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px;
+    font-weight: 200;
+  }
+
+  a:hover {
+    cursor: pointer;
+  }
+}

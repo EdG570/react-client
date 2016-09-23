@@ -6,6 +6,7 @@ import UserLogin from './components/login';
 import PasswordReset from './components/forgot_password';
 import SignUp from './components/sign_up';
 import Home from './components/home';
+import TodosUI from './components/todos_ui';
 
 export default (
   <Route path="/" component={App}>
@@ -13,5 +14,6 @@ export default (
     <Route path="/signin" component={UserLogin} />;
     <Route path="/forgotpassword" component={PasswordReset} />
     <Route path="/signup" component={SignUp} />
+    <Route path="/todos" component={TodosUI} />
   </Route>
 );

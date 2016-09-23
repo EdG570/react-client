@@ -36,15 +36,28 @@ export class SignUp extends Component {
   validate(e) {
     const inputErrors = {};
 
+    if (!this.state.name) {
+      inputErrors.name = 'Required: Please enter your name';
+    } else if (!/^[A-Za-z ]{3,20}$/.test(this.state.name)) {
+      inputErrors.name = 'Invalid name: Only letters and spaces allowed';
+    }
+
     if (!this.state.email) {
       inputErrors.email = 'Required: Please enter your email';
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(this.state.email)) {
       inputErrors.email = 'Invalid email address';
     }
+
     if (!this.state.password) {
       inputErrors.password = 'Required: Please enter your password';
     } else if (this.state.password.length < 6) {
       inputErrors.password = 'Must be at least 6 characters in length'
+    }
+
+    if(!this.state.pwConfirm) {
+      inputErrors.pwConfirm = 'Required: Please confirm your password';
+    } else if (this.state.pwConfirm !== this.state.password) {
+      inputErrors.pwConfirm = 'Passwords must match';
     }
 
     if (Object.keys(inputErrors).length === 0) {
@@ -64,6 +77,10 @@ export class SignUp extends Component {
         <img src="../src/assets/logo.svg" alt="Simplexity logo"/>
         <h1>Get Simplexity for free</h1>
 
+        { Object.keys(this.state.errors).length > 0 ? <p className="error-msg">{this.state.errors.name}</p> : null }
+        { Object.keys(this.state.errors).length > 0 ? <p className="error-msg">{this.state.errors.email}</p> : null }
+        { Object.keys(this.state.errors).length > 0 ? <p className="error-msg">{this.state.errors.password}</p> : null }
+        { Object.keys(this.state.errors).length > 0 ? <p className="error-msg">{this.state.errors.pwConfirm}</p> : null }
         <form>
           <div className="clearfix">
             <img src="../src/assets/avatar.svg" alt="Name icon"/>
@@ -86,7 +103,7 @@ export class SignUp extends Component {
           </div>
 
           <div>
-            <button type="submit">Sign Up</button>
+            <button onClick={this.validate} type="submit">Sign Up</button>
           </div>
         </form>
         <p>Already have an account? <Link to="/signin">Sign In</Link></p>

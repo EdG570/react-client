@@ -4,8 +4,13 @@ const rootUrl = 'http://localhost:3000';
 const lists = '/lists';
 
 export function logUserIn() {
-
-
+  // const userData =
+  //
+  //
+  // return {
+  //   type: 'USER_LOGGED_IN',
+  //   payload: request
+  // }
 };
 
 // export function getLists() {

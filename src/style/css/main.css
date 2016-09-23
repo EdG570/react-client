@@ -552,7 +552,8 @@ button:focus {
   #features-section h2 {
     font-weight: 300;
     font-size: 2em;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    margin-top: 0.5em; }
 
 .footer-section {
   width: 100%;

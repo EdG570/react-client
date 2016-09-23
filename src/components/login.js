@@ -3,10 +3,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-
-import { logUserIn } from '../actions/index';
-
-class UserLogin extends Component {
+export default class UserLogin extends Component {
   constructor(props) {
     super(props);
 
@@ -63,11 +60,7 @@ function validate(values) {
   return errors;
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ logUserIn }, dispatch);
-}
 
-export default connect (null, mapDispatchToProps)(UserLogin);
 
 
 

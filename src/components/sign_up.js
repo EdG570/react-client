@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import { postNewUser } from '../actions/index';
 
-class SignUp extends Component {
+export class SignUp extends Component {
   constructor(props) {
     super(props);
 

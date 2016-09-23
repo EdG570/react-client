@@ -12,4 +12,4 @@ export default class UserDetailsCont extends Component {
       </div>
     );
   }
-}
+};

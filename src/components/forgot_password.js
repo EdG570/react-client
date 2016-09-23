@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { resetPassword } from '../actions/index';
-
-class PasswordReset extends Component {
+export class PasswordReset extends Component {
   constructor(props) {
     super(props);
 
@@ -48,7 +46,7 @@ class PasswordReset extends Component {
       <div className="login-section">
         <img src="../src/assets/logo.svg" id="pw-logo" alt="Simplexity logo"/>
 
-        <form onSubmit={this.validate}>
+        <form>
           <div>
             <h3>Forgot your password?</h3>
             <p>No worries. Just enter your email address below and we'll send you instructions
@@ -72,9 +70,5 @@ class PasswordReset extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ resetPassword }, dispatch);
-}
 
-export default connect (null, mapDispatchToProps)(PasswordReset);
 

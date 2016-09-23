@@ -39,6 +39,8 @@ export class PasswordReset extends Component {
       e.preventDefault();
     }
 
+    return inputErrors;
+
   }
 
   render() {

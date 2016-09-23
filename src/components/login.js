@@ -9,7 +9,9 @@ export default class UserLogin extends Component {
 
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      valid: false,
+      errors: {}
     };
 
     this.updateState = this.updateState.bind(this);
@@ -25,8 +27,28 @@ export default class UserLogin extends Component {
     console.log(this.state.email, this.state.password);
   }
 
-  validate() {
+  validate(e) {
+    const inputErrors = {};
 
+    if (!this.state.email) {
+      inputErrors.email = 'Required: Please enter your email';
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(this.state.email)) {
+      inputErrors.email = 'Invalid email address';
+    }
+    if (!this.state.password) {
+      inputErrors.password = 'Required: Please enter your password';
+    } else if (this.state.password.length < 6) {
+      inputErrors.password = 'Must be at least 6 characters in length'
+    }
+
+    if (Object.keys(inputErrors).length === 0) {
+      this.setState({valid: true, errors: inputErrors});
+    } else {
+      this.setState({valid: false, errors: inputErrors});
+      e.preventDefault();
+    }
+
+    return inputErrors;
   }
 
   render() {
@@ -35,6 +57,8 @@ export default class UserLogin extends Component {
         <img src="../src/assets/logo.svg" alt="Simplexity logo"/>
         <h1>Sign In</h1>
 
+        { Object.keys(this.state.errors).length > 0 ? <p className="error-msg">{this.state.errors.email}</p> : null }
+        { Object.keys(this.state.errors).length > 0 ? <p className="error-msg">{this.state.errors.password}</p> : null }
         <form>
           <div className="clearfix">
             <img src="../src/assets/envelope.svg" alt="Email icon"/>
@@ -48,7 +72,7 @@ export default class UserLogin extends Component {
 
           <div>
             <Link to="/todos">Fake Sign In</Link>
-            <button type="submit">Sign In</button>
+            <button onClick={this.validate} type="submit">Sign In</button>
             <Link to="/forgotpassword" className="password-reset">Forgot your password?</Link>
           </div>
         </form>
@@ -59,20 +83,7 @@ export default class UserLogin extends Component {
 }
 
 function validate(values) {
-  const errors = {};
 
-  if (!values.email) {
-    errors.email = 'Required: Please enter your email';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = 'Invalid email address';
-  }
-  if (!values.password) {
-    errors.password = 'Required: Please enter your password';
-  } else if (values.password.length < 6) {
-    errors.password = 'Must be at least 6 characters in length'
-  }
-
-  return errors;
 }
 
 

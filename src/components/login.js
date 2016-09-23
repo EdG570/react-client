@@ -24,7 +24,6 @@ export default class UserLogin extends Component {
     const passwordVal = vals[1].value;
 
     this.setState({ email: emailVal, password: passwordVal });
-    console.log(this.state.email, this.state.password);
   }
 
   validate(e) {

@@ -13,12 +13,48 @@ export class SignUp extends Component {
       name: '',
       email: '',
       password: '',
-      passwordConfirm: ''
+      pwConfirm: '',
+      valid: false,
+      errors: {}
     };
+
+    this.updateState = this.updateState.bind(this);
+    this.validate = this.validate.bind(this);
   }
 
   updateState() {
+    const nameVal = document.querySelector('#name').value;
+    const emailVal = document.querySelector('#email').value;
+    const passwordVal = document.querySelector('#password').value;
+    const pwConfirmVal = document.querySelector('#pwconfirm').value;
 
+    this.setState({ name: nameVal, email: emailVal, password: passwordVal, pwConfirm: pwConfirmVal });
+
+    console.log(this.state);
+  }
+
+  validate(e) {
+    const inputErrors = {};
+
+    if (!this.state.email) {
+      inputErrors.email = 'Required: Please enter your email';
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(this.state.email)) {
+      inputErrors.email = 'Invalid email address';
+    }
+    if (!this.state.password) {
+      inputErrors.password = 'Required: Please enter your password';
+    } else if (this.state.password.length < 6) {
+      inputErrors.password = 'Must be at least 6 characters in length'
+    }
+
+    if (Object.keys(inputErrors).length === 0) {
+      this.setState({valid: true, errors: inputErrors});
+    } else {
+      this.setState({valid: false, errors: inputErrors});
+      e.preventDefault();
+    }
+
+    return inputErrors;
   }
 
   render() {
@@ -31,22 +67,22 @@ export class SignUp extends Component {
         <form>
           <div className="clearfix">
             <img src="../src/assets/avatar.svg" alt="Name icon"/>
-            <input placeholder="Name" type="text" name="name" />
+            <input onChange={this.updateState} id="name" placeholder="Name" type="text" name="name" />
           </div>
 
           <div className="clearfix">
             <img src="../src/assets/envelope.svg" alt="Email icon"/>
-            <input placeholder="email" type="text" name="email" />
+            <input onChange={this.updateState} id="email" placeholder="email" type="text" name="email" />
           </div>
 
           <div className="clearfix">
             <img src="../src/assets/locked.svg" alt="Password icon"/>
-            <input placeholder="Password" type="text" name="password" />
+            <input onChange={this.updateState} id="password" placeholder="Password" type="text" name="password" />
           </div>
 
           <div className="clearfix">
             <img src="../src/assets/confirm.svg" alt="Confirm password icon"/>
-            <input placeholder="Confirm password" type="text" name="passwordConfirm"/>
+            <input onChange={this.updateState} id="pwconfirm" placeholder="Confirm password" type="text" name="passwordConfirm"/>
           </div>
 
           <div>

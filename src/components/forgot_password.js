@@ -1,19 +1,33 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import { resetPassword } from '../actions/index';
 
 class PasswordReset extends Component {
-  render() {
-    const handleSubmit = this.props.handleSubmit;
-    const email = this.props.fields.email;
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      email: ''
+    }
+
+    this.updateState = this.updateState.bind(this);
+  }
+
+  updateState() {
+    const inputVal = document.querySelector('input');
+
+    this.setState({ email: inputVal.value });
+  }
+
+  render() {
     return (
       <div className="login-section">
         <img src="../src/assets/logo.svg" id="pw-logo" alt="Simplexity logo"/>
 
-        <form onSubmit={handleSubmit}>
+        <form>
           <div>
             <h3>Forgot your password?</h3>
             <p>No worries. Just enter your email address below and we'll send you instructions
@@ -22,7 +36,7 @@ class PasswordReset extends Component {
 
           <div className="clearfix">
             <img src="../src/assets/envelope.svg" alt="Email icon"/>
-            <Field placeholder="email" component="input" type="text" name="email" {...email} />
+            <input onChange={this.updateState} placeholder="email" type="text" name="email" />
           </div>
 
           <div>
@@ -48,8 +62,9 @@ function validate(values) {
   return errors;
 }
 
-export default reduxForm({
-  form: 'PasswordReset',
-  fields: ['email'],
-  validate
-}, null, { resetPassword })(PasswordReset);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ resetPassword }, dispatch);
+}
+
+export default connect (null, mapDispatchToProps)(PasswordReset);
+

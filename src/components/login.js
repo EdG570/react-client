@@ -1,29 +1,37 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 
 import { logUserIn } from '../actions/index';
 
 class UserLogin extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      email: '',
+      password: ''
+    };
+  }
+
   render() {
-    const handleSubmit = this.props.handleSubmit;
-    const email = this.props.fields.email;
-    const password = this.props.fields.password;
 
     return (
       <div className="login-section">
         <img src="../src/assets/logo.svg" alt="Simplexity logo"/>
         <h1>Sign In</h1>
 
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className="clearfix">
             <img src="../src/assets/envelope.svg" alt="Email icon"/>
-            <Field placeholder="Email" component="input" type="text" name="email" {...email} />
+            <input placeholder="Email" type="text" name="email" />
           </div>
 
           <div className="clearfix">
             <img src="../src/assets/locked.svg" alt="Password icon"/>
-            <Field placeholder="Password" component="input" type="text" name="password" {...password}/>
+            <input placeholder="Password" type="text" name="password" />
           </div>
 
           <div>
@@ -55,11 +63,13 @@ function validate(values) {
   return errors;
 }
 
-export default reduxForm({
-  form: 'UserLogin',
-  fields: ['email', 'password'],
-  validate
-}, null, { logUserIn })(UserLogin);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ logUserIn }, dispatch);
+}
+
+export default connect (null, mapDispatchToProps)(UserLogin);
+
+
 
 
 

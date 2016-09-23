@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class UserAvatar extends Component {
+export default class UserDetail extends Component {
   render() {
     return (
       <div className="user-detail">

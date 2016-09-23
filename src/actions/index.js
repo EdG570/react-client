@@ -3,25 +3,23 @@ import axios from 'axios';
 const rootUrl = 'http://localhost:3000';
 const lists = '/lists';
 
+const WEATHER_API_KEY = '65efb18293ede5bb078c2a9cd2ac3ea3';
+
 export function logUserIn() {
-  // const userData =
-  //
-  //
-  // return {
-  //   type: 'USER_LOGGED_IN',
-  //   payload: request
-  // }
+  const city = 'Northumberland';
+  const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_API_KEY}`;
+  const request = axios.get(weatherUrl);
+
+  console.log(request);
+  console.log(request);
+
+  return {
+    type: 'FETCH_WEATHER',
+    payload: request
+  }
 };
 
-// export function getLists() {
-//   const request = axios.get(`${rootUrl}${lists}`);
-//   console.log(request);
-//
-//   return {
-//     type: 'FETCH_LISTS',
-//     payload: request
-//   }
-// }
+
 
 export function resetPassword() {
 

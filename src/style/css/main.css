@@ -567,8 +567,9 @@ button:focus {
 
 #user-container {
   height: 100vh;
-  max-width: 300px;
-  background-color: #1f4f60; }
+  width: 300px;
+  background-color: #1f4f60;
+  float: left; }
 
 .user-detail {
   text-align: center;
@@ -602,3 +603,9 @@ button:focus {
     font-weight: 200; }
   #user-lists a:hover {
     cursor: pointer; }
+
+.weather-container {
+  height: 100vh;
+  width: 300px;
+  background-color: #333;
+  float: right; }

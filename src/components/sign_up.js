@@ -1,41 +1,52 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import { postNewUser } from '../actions/index';
 
 class SignUp extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      name: '',
+      email: '',
+      password: '',
+      passwordConfirm: ''
+    };
+  }
+
+  updateState() {
+
+  }
+
   render() {
-    const handleSubmit = this.props.handleSubmit;
-    const email = this.props.fields.email;
-    const password = this.props.fields.password;
-    const passwordConfirm = this.props.fields.passwordConfirm;
-    const name = this.props.fields.name;
 
     return (
       <div className="login-section">
         <img src="../src/assets/logo.svg" alt="Simplexity logo"/>
         <h1>Get Simplexity for free</h1>
 
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className="clearfix">
             <img src="../src/assets/avatar.svg" alt="Name icon"/>
-            <Field placeholder="Name" component="input" type="text" name="name" {...name}/>
+            <input placeholder="Name" type="text" name="name" />
           </div>
 
           <div className="clearfix">
             <img src="../src/assets/envelope.svg" alt="Email icon"/>
-            <Field placeholder="email" component="input" type="text" name="email" {...email} />
+            <input placeholder="email" type="text" name="email" />
           </div>
 
           <div className="clearfix">
             <img src="../src/assets/locked.svg" alt="Password icon"/>
-            <Field placeholder="Password" component="input" type="text" name="password" {...password}/>
+            <input placeholder="Password" type="text" name="password" />
           </div>
 
           <div className="clearfix">
             <img src="../src/assets/confirm.svg" alt="Confirm password icon"/>
-            <Field placeholder="Confirm password" component="input" type="text" name="passwordConfirm" {...passwordConfirm}/>
+            <input placeholder="Confirm password" type="text" name="passwordConfirm"/>
           </div>
 
           <div>
@@ -78,9 +89,11 @@ function validate(values) {
   return errors;
 }
 
-export default reduxForm({
-  form: 'SignUp',
-  fields: ['name', 'email', 'password', 'passwordConfirm'],
-  validate
-}, null, { postNewUser })(SignUp);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ postNewUser }, dispatch);
+}
+
+export default connect (null, mapDispatchToProps)(SignUp);
+
+
 

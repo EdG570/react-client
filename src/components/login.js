@@ -11,10 +11,25 @@ export default class UserLogin extends Component {
       email: '',
       password: ''
     };
+
+    this.updateState = this.updateState.bind(this);
+    this.validate = this.validate.bind(this);
+  }
+
+  updateState() {
+    const vals = document.querySelectorAll('input');
+    const emailVal = vals[0].value;
+    const passwordVal = vals[1].value;
+
+    this.setState({ email: emailVal, password: passwordVal });
+    console.log(this.state.email, this.state.password);
+  }
+
+  validate() {
+
   }
 
   render() {
-
     return (
       <div className="login-section">
         <img src="../src/assets/logo.svg" alt="Simplexity logo"/>
@@ -23,12 +38,12 @@ export default class UserLogin extends Component {
         <form>
           <div className="clearfix">
             <img src="../src/assets/envelope.svg" alt="Email icon"/>
-            <input placeholder="Email" type="text" name="email" />
+            <input onChange={ this.updateState } placeholder="Email" type="text" name="email" />
           </div>
 
           <div className="clearfix">
             <img src="../src/assets/locked.svg" alt="Password icon"/>
-            <input placeholder="Password" type="text" name="password" />
+            <input onChange={ this.updateState } placeholder="Password" type="text" name="password" />
           </div>
 
           <div>

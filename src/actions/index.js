@@ -1,24 +1,14 @@
-import axios from 'axios';
-
 export const actions = {
-  WEATHER_FETCHED: 'WEATHER_FETCHED',
-  WEATHER_FETCH_FAILED: 'WEATHER_FETCH_FAILED'
+  FETCH_WEATHER: 'FETCH_WEATHER',
+  WEATHER_FETCH_ERROR: 'WEATHER_FETCH_ERROR',
+  WEATHER_FETCH_SUCCESS: 'WEATHER_FETCH_SUCCESS'
 };
 
 const rootURL = 'http://api.openweathermap.org/data/2.5/weather?q=';
 const WEATHER_API_KEY = '65efb18293ede5bb078c2a9cd2ac3ea3';
 
 export function fetchWeather(city) {
-
-  return (dispatch) => {
-    axios.get(`${rootURL}${city}&units=imperial&appid=${WEATHER_API_KEY}`)
-        .then((res) => {
-          return dispatch(fetchWeatherAction(res));
-        })
-        .catch((err) => {
-          return dispatch(fetchWeatherFailedAction(err));
-        });
-  }
+  return fetchWeatherAction(city);
 }
 
 function fetchWeatherFailedAction(payload){
@@ -31,8 +21,14 @@ function fetchWeatherFailedAction(payload){
 
 function fetchWeatherAction(payload) {
   return {
-    type: actions.WEATHER_FETCHED,
-    payload
+    type: actions.FETCH_WEATHER,
+    payload,
+    meta: {
+      remote: {
+        url: `${rootURL}${payload}&units=imperial&appid=${WEATHER_API_KEY}`,
+        method: 'get'
+      }
+    }
   };
 }
 

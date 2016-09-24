@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --inline",
-    "sass" : "node-sass src/style/scss/main.scss src/style/css/main.css"
+    "sass": "node-sass src/style/scss/main.scss src/style/css/main.css"
   },
   "author": "",
   "license": "ISC",
@@ -40,6 +40,8 @@
     "react-router": "^2.8.1",
     "redux": "^3.6.0",
     "redux-form": "^6.0.5",
-    "redux-promise": "^0.5.3"
+    "redux-logger": "^2.6.1",
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.1.0"
   }
 }

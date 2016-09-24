@@ -376,11 +376,11 @@ a {
   color: blue; }
 
 p, span {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
   line-height: 1.4; }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Lato', sans-serif; }
 
 p, h1, h2, h3, h4, h5 {
   letter-spacing: 1px; }
@@ -552,7 +552,7 @@ button:focus {
     max-width: 7em;
     color: #4bc0ea; }
   #features-section p {
-    font-weight: 200; }
+    font-weight: 100; }
   #features-section h2 {
     font-weight: 300;
     font-size: 2em;
@@ -634,4 +634,5 @@ button:focus {
     font-weight: 200;
     font-size: 1.25em;
     position: relative;
-    bottom: 1.25em; }
+    bottom: 1.25em;
+    font-family: 'Roboto', sans-serif; }

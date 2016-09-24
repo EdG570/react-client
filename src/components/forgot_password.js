@@ -1,9 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
-export class PasswordReset extends Component {
+export default class PasswordReset extends Component {
   constructor(props) {
     super(props);
 
@@ -62,7 +60,7 @@ export class PasswordReset extends Component {
           </div>
 
           <div>
-            <button type="submit">Reset Password</button>
+            <button onClick={this.validate} type="submit">Reset Password</button>
           </div>
         </form>
 

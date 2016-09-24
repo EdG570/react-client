@@ -1,18 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { fetchWeather } from '../../actions/index';
 
 class WeatherDetail extends Component {
+
   componentWillMount() {
     this.props.fetchWeather('Northumberland');
   }
 
+  capitalizeFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  roundTemp(temp) {
+    return Math.round(temp);
+  }
+
   render() {
-    const temp = Math.round(this.props.weather.temp);
-    let description = this.props.weather.description;
-    description = description.charAt(0).toUpperCase() + description.slice(1);
+    const temp = this.roundTemp(this.props.weather.temp);
+    const description = this.capitalizeFirstLetter(this.props.weather.description);
     const iconID = this.props.weather.iconID;
 
     if (!this.props.weather) return <div>Loading...</div>;
@@ -28,6 +36,10 @@ class WeatherDetail extends Component {
     );
   }
 }
+
+WeatherDetail.propTypes = {
+  weather: React.PropTypes.object
+};
 
 function mapStateToProps(state) {
   return {

@@ -6,15 +6,24 @@ import { fetchWeather } from '../../actions/index';
 
 class WeatherDetail extends Component {
   componentWillMount() {
-    this.props.fetchWeather();
+    this.props.fetchWeather('Northumberland');
   }
 
   render() {
+    const temp = Math.round(this.props.weather.temp);
+    let description = this.props.weather.description;
+    description = description.charAt(0).toUpperCase() + description.slice(1);
+    const iconID = this.props.weather.iconID;
+
+    if (!this.props.weather) return <div>Loading...</div>;
+
     return (
       <div className="weather-detail">
-        <img src="" alt="Weather image"/>
-        <h3>Rain</h3>
-        {console.log(this.props.weather)}
+        <div className="clearfix">
+          <img src={`http://openweathermap.org/img/w/${iconID}.png`} alt="Weather image"/>
+          <h2>{temp}°F</h2>
+        </div>
+        <h3>{description}</h3>
       </div>
     );
   }

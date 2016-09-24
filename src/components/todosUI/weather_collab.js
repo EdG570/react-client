@@ -5,7 +5,7 @@ export default class WeatherCollab extends Component {
     return (
       <div className="weather-collab">
 
-        <h3>Collab says hi!</h3>
+
       </div>
     );
   }

@@ -1,0 +1,28 @@
+.weather-detail {
+  text-align: center;
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 0.5em;
+
+  h2, h3 {
+    margin: 0;
+    color: #fff;
+  }
+
+  img {
+    width: 9em;
+  }
+
+  h2 {
+    font-size: 3em;
+    font-weight: 400;
+    position: relative;
+    bottom: 0.75em;
+  }
+
+  h3 {
+    font-weight: 200;
+    font-size: 1.25em;
+    position: relative;
+    bottom: 1.25em;
+  }
+}

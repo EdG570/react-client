@@ -11,7 +11,7 @@ const initialState = {
 export default function(state = initialState, action) {
 
   switch(action.type) {
-    case actions.WEATHER_FETCHED_SUCCESS:
+    case actions.FETCH_WEATHER_SUCCESS:
       return Object.assign({}, state, {
         temp: action.payload.main.temp,
         description: action.payload.weather[0].description,

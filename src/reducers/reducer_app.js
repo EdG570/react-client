@@ -12,7 +12,8 @@ export default function(state = initialState, action) {
                 token: window.localStorage.getItem('token')
             });
 
-        case actions.RECIEVED_TOKEN:
+        case actions.LOGIN_SUCCESS:
+        case actions.SIGNUP_SUCCESS:
             window.localStorage.setItem('token', action.payload);
             return Object.assign({}, state, {
                 token: action.payload

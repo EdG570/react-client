@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 var htmlWebpackPlugin = require('html-webpack-plugin');
 var htmlWebpackPluginConfig = new htmlWebpackPlugin({
     template: __dirname + '/src/index.html',
@@ -7,16 +8,25 @@ var htmlWebpackPluginConfig = new htmlWebpackPlugin({
 
 module.exports = {
     entry: [
-        './src/index.js'
+        './src/index.js',
+        'webpack/hot/dev-server'
     ],
     output: {
         path: __dirname + '/dist',
         filename: "index_bundle.js"
+    },
+    devServer: {
+        contentBase: './',
+        historyApiFallback: true,
+        hot: true
     },
     module: {
         loaders: [
             {test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"}
         ]
     },
-    plugins: [htmlWebpackPluginConfig]
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        htmlWebpackPluginConfig
+    ]
 };

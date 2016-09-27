@@ -16,6 +16,8 @@ const middleware = [promise, api, thunk, logger({collapsed: true})];
 
 let store = createStore(reducers, {}, compose(applyMiddleware(...middleware)));
 
+store.dispatch({type: 'INITIALIZE_APPLICATION'});
+
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory} routes={routes} />

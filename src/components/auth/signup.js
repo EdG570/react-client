@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { postNewUser } from '../actions/index';
+import { postNewUser } from '../../actions/index';
 
 export class SignUp extends Component {
   constructor(props) {

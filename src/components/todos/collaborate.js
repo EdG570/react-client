@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-export default class WeatherCollab extends Component {
+export default class Collaborate extends Component {
   render() {
     return (
-      <div className="weather-collab">
+      <div className="collaborate">
 
 
       </div>

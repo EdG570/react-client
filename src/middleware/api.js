@@ -6,7 +6,6 @@ export default store => next => action => {
     const state = store.getState();
     const request = action.meta.remote;
 
-
     if (state.app.token) {
       window.localStorage.set('token', state.app.token);
       options.headers = {

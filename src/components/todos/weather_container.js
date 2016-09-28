@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import WeatherDetails from './weather_detail';
-import Collab from './weather_collab';
+import Collab from './collaborate';
 
 export default class WeatherCont extends Component {
   render() {

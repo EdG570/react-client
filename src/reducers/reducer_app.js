@@ -17,13 +17,19 @@ export default function(state = initialState, action) {
       return Object.assign({}, state, {
 
       });
+    case actions.SIGNIN_ERROR:
+      return Object.assign({}, state, {
+
+      });
     case actions.SIGNUP_SUCCESS:
       window.localStorage.setItem('token', action.payload);
       return Object.assign({}, state, {
         token: action.payload
       });
+    case actions.SIGNUP_ERROR:
+      return Object.assign({}, state, {
 
-    //TODO: Add fetch failed action response
+      });
     default:
       return state;
   }

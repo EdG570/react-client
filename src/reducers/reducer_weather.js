@@ -19,7 +19,6 @@ export default function(state = initialState, action) {
         location: action.payload.name
       });
     case actions.FETCH_WEATHER_ERROR:
-      console.log(action.payload.err.data);
       return Object.assign({}, state, {
         error: action.payload
       });

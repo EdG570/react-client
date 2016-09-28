@@ -619,8 +619,9 @@ button:focus {
 .weather-detail {
   text-align: center;
   border-bottom: 1px solid #aaa;
-  padding-bottom: 0.5em; }
-  .weather-detail h2, .weather-detail h3 {
+  padding-bottom: 0.5em;
+  padding-top: 1em; }
+  .weather-detail h2, .weather-detail h3, .weather-detail p {
     margin: 0;
     color: #fff; }
   .weather-detail img {
@@ -631,8 +632,18 @@ button:focus {
     position: relative;
     bottom: 0.75em; }
   .weather-detail h3 {
-    font-weight: 200;
     font-size: 1.25em;
     position: relative;
     bottom: 1.25em;
     font-family: 'Roboto', sans-serif; }
+  .weather-detail p, .weather-detail h3 {
+    font-weight: 300; }
+  .weather-detail p {
+    position: relative;
+    top: 1em;
+    line-height: 1.7;
+    color: #eee;
+    letter-spacing: 2px; }
+  .weather-detail span {
+    font-family: 'Lato', sans-serif;
+    font-weight: 200; }

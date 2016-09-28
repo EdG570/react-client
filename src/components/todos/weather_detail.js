@@ -21,6 +21,7 @@ class WeatherDetail extends Component {
   render() {
     const temp = this.roundTemp(this.props.weather.temp);
     const description = this.capitalizeFirstLetter(this.props.weather.description);
+    const city = this.props.weather.location.toUpperCase();
     const iconID = this.props.weather.iconID;
 
     if (!this.props.weather) return <div>Loading...</div>;
@@ -28,6 +29,7 @@ class WeatherDetail extends Component {
     return (
       <div className="weather-detail">
         <div className="clearfix">
+          <p>Current weather for: <span>{city}</span></p>
           <img src={`http://openweathermap.org/img/w/${iconID}.png`} alt="Weather image"/>
           <h2>{temp}°F</h2>
         </div>

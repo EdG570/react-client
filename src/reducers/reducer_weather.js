@@ -5,7 +5,7 @@ const initialState = {
   description: '',
   iconID: '',
   location: '',
-  errors: []
+  error: ''
 };
 
 export default function(state = initialState, action) {
@@ -19,12 +19,10 @@ export default function(state = initialState, action) {
         location: action.payload.name
       });
     case actions.FETCH_WEATHER_ERROR:
+      console.log(action.payload.err.data);
       return Object.assign({}, state, {
-        // TODO: Where do I access the error?
-        errors: []
+        error: action.payload
       });
-
-    //TODO: Add fetch failed action response
     default:
       return state;
   }

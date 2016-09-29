@@ -18,6 +18,11 @@ export function getPosition() {
   });
 }
 
+/*
+  TODO: Refactor geolocation request so it isn't invoked twice,
+  TODO: once for each weather api request.
+*/
+
 export function fetchCurrentWeather() {
 
   return getPosition()
@@ -129,6 +134,7 @@ function SignupAction(payload) {
 }
 
 export function showWeatherDetails(index) {
+  console.log('Action creator initiated!');
   return {
     type: actions.SHOW_WEATHER_DETAILS,
     payload: index

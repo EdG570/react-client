@@ -7,7 +7,6 @@ import { showWeatherDetails } from '../../../actions/index';
 class ForecastList extends Component {
 
   forecastList() {
-    console.log('FORECAST WEATHER LIST BUILD: ' + this.props.forecastWeather.days);
     const forecastDays = this.props.forecastWeather.days.map((day, index) => {
       return <li key={index} onClick={this.showWeatherDetails}>
                <img src={`http://icons.wxug.com/i/c/a/${day.icon}.gif`} alt="Weather image" />

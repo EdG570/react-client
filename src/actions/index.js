@@ -15,12 +15,10 @@ export function getPosition() {
       }
 
     );
-
   });
-
 }
 
-export function fetchWeather() {
+export function fetchCurrentWeather() {
 
   return getPosition()
     .then((position) => {
@@ -31,25 +29,61 @@ export function fetchWeather() {
         long: position.coords.longitude
       };
 
-      return fetchWeatherAction(userCoords);
+      return fetchCurrentWeatherAction(userCoords);
     })
     .catch((error) => {
       console.log(error);
     });
 }
 
-function fetchWeatherAction(payload) {
+function fetchCurrentWeatherAction(payload) {
   const rootURL = 'http://api.wunderground.com/api/';
   const WEATHER_API_KEY = '1c2ef46287ff1e67';
   const lat = payload.lat;
   const long = payload.long;
 
   return {
-    type: actions.FETCH_WEATHER,
+    type: actions.FETCH_CURRENT_WEATHER,
     payload,
     meta: {
       remote: {
         url: `${rootURL}${WEATHER_API_KEY}/conditions/q/${lat},${long}.json`,
+        method: 'GET'
+      }
+    }
+  };
+}
+
+export function fetchForecastWeather() {
+
+  return getPosition()
+  .then((position) => {
+    console.log(position);
+
+    let userCoords = {
+      lat: position.coords.latitude,
+      long: position.coords.longitude
+    };
+
+    return fetchForecastWeatherAction(userCoords);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+}
+
+function fetchForecastWeatherAction(payload) {
+  const rootURL = 'http://api.wunderground.com/api/';
+  const WEATHER_API_KEY = '1c2ef46287ff1e67';
+  const lat = payload.lat;
+  const long = payload.long;
+
+  return {
+    type: actions.FETCH_FORECAST_WEATHER,
+    payload,
+    meta: {
+      remote: {
+        url: `${rootURL}${WEATHER_API_KEY}/forecast/q/${lat},${long}.json`,
         method: 'GET'
       }
     }
@@ -93,4 +127,13 @@ function SignupAction(payload) {
     }
   }
 }
+
+export function showWeatherDetails(index) {
+  return {
+    type: actions.SHOW_WEATHER_DETAILS,
+    payload: index
+  }
+}
+
+
 

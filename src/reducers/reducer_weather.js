@@ -9,14 +9,14 @@ const initialState = {
 };
 
 export default function(state = initialState, action) {
-
+  console.log(action);
   switch(action.type) {
     case actions.FETCH_WEATHER_SUCCESS:
       return Object.assign({}, state, {
-        temp: action.payload.main.temp,
-        description: action.payload.weather[0].description,
-        iconID: action.payload.weather[0].icon,
-        location: action.payload.name
+        temp: action.payload.current_observation.temp_f,
+        description: action.payload.current_observation.weather,
+        iconID: action.payload.current_observation.icon,
+        location: action.payload.current_observation.display_location.full
       });
     case actions.FETCH_WEATHER_ERROR:
       return Object.assign({}, state, {

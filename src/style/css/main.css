@@ -619,31 +619,31 @@ button:focus {
 .weather-detail {
   text-align: center;
   border-bottom: 1px solid #aaa;
-  padding-bottom: 0.5em;
-  padding-top: 1em; }
+  padding-bottom: 1em; }
   .weather-detail h2, .weather-detail h3, .weather-detail p {
     margin: 0;
     color: #fff; }
   .weather-detail img {
-    width: 9em; }
+    width: 6em; }
   .weather-detail h2 {
     font-size: 3em;
     font-weight: 400;
     position: relative;
-    bottom: 0.75em; }
+    bottom: 0.25em; }
   .weather-detail h3 {
     font-size: 1.25em;
     position: relative;
-    bottom: 1.25em;
-    font-family: 'Roboto', sans-serif; }
+    bottom: 0.25em;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px; }
   .weather-detail p, .weather-detail h3 {
     font-weight: 300; }
   .weather-detail p {
-    position: relative;
-    top: 1em;
     line-height: 1.7;
     color: #eee;
-    letter-spacing: 2px; }
+    letter-spacing: 2px;
+    background-color: #ccc;
+    padding: 0.75em 0; }
   .weather-detail span {
     font-family: 'Lato', sans-serif;
     font-weight: 200; }

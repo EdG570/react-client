@@ -15,8 +15,8 @@ export default store => next => action => {
     
     axios(Object.assign(options, {
       method: request.method,
-      url: request.url,
-      data: action.payload
+      url: request.url
+      // data: action.payload
     }))
       .then((response) => {
         store.dispatch({ type: `${action.type}_SUCCESS`, payload: response.data});

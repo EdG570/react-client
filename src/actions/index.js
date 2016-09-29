@@ -1,44 +1,55 @@
 import { actions } from './types';
 
-function fetchCoords() {
-  var startPos;
-  var geoOptions = {
-    timeout: 10 * 1000
-  };
+export function getPosition() {
 
-  var geoSuccess = function(position) {
-    startPos = position;
-    console.log(startPos.coords.latitude);
-    console.log(startPos.coords.longitude);
-  };
-  var geoError = function(error) {
-    console.log('Error occurred. Error code: ' + error.code);
-    // error.code can be:
-    //   0: unknown error
-    //   1: permission denied
-    //   2: position unavailable (error response from location provider)
-    //   3: timed out
-  };
+  return new Promise(function(resolve, reject) {
 
-  navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
+    navigator.geolocation.getCurrentPosition(
+
+      function(position) {
+        resolve(position);
+      },
+
+      function(error) {
+        reject(error);
+      }
+
+    );
+
+  });
 
 }
 
 export function fetchWeather() {
-  const userCoords = fetchCoords();
-  return fetchWeatherAction(userCoords);
+
+  return getPosition()
+    .then((position) => {
+      console.log(position);
+
+      let userCoords = {
+        lat: position.coords.latitude,
+        long: position.coords.longitude
+      };
+
+      return fetchWeatherAction(userCoords);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }
 
 function fetchWeatherAction(payload) {
-  const rootURL = 'http://api.openweathermap.org/data/2.5/weather?q=';
-  const WEATHER_API_KEY = '65efb18293ede5bb078c2a9cd2ac3ea3';
+  const rootURL = 'http://api.wunderground.com/api/';
+  const WEATHER_API_KEY = '1c2ef46287ff1e67';
+  const lat = payload.lat;
+  const long = payload.long;
 
   return {
     type: actions.FETCH_WEATHER,
     payload,
     meta: {
       remote: {
-        url: `${rootURL}${payload}&units=imperial&appid=${WEATHER_API_KEY}`,
+        url: `${rootURL}${WEATHER_API_KEY}/conditions/q/${lat},${long}.json`,
         method: 'GET'
       }
     }

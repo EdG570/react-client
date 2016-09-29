@@ -30,7 +30,7 @@ class WeatherDetail extends Component {
       <div className="weather-detail">
         <div className="clearfix">
           <p>Current weather for: <span>{city}</span></p>
-          <img src={`http://openweathermap.org/img/w/${iconID}.png`} alt="Weather image"/>
+          <img src={`http://icons.wxug.com/i/c/f/${iconID}.gif`} alt="Weather image"/>
           <h2>{temp}°F</h2>
         </div>
         <h3>{description}</h3>

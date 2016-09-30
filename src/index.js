@@ -11,12 +11,15 @@ import reducers from './reducers';
 import api from './middleware/api';
 import routes from './routes';
 
+import { actions } from './actions/types';
+import { getUserPosition } from './actions';
 
 const middleware = [promise, api, thunk, logger({collapsed: true})];
 
 let store = createStore(reducers, {}, compose(applyMiddleware(...middleware)));
 
-store.dispatch({type: 'INITIALIZE_APPLICATION'});
+store.dispatch({type: actions.INITIALIZE_APPLICATION});
+store.dispatch(getUserPosition());
 
 ReactDOM.render(
   <Provider store={store}>

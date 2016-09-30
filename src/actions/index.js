@@ -23,46 +23,52 @@ export function getPosition() {
   TODO: once for each weather api request.
 */
 
-export function fetchCurrentWeather() {
+export function getUserPosition() {
+  let ret = getPosition()
+  .then((position) => {
+    console.log(position);
 
-  return getPosition()
-    .then((position) => {
-      console.log(position);
+    let userCoords = {
+      type: actions.FETCH_USER_COORDINATES,
+      payload: {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude
+      }
+    };
 
-      let userCoords = {
-        type: actions.SET_USER_COORDS,
-        lat: position.coords.latitude,
-        long: position.coords.longitude
-      };
+    // TODO: Return action that stores userCoords in State
+    //return fetchCurrentWeatherAction(userCoords);
+    return userCoords;
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
-      // TODO: Return action that stores userCoords in State
-      //return fetchCurrentWeatherAction(userCoords);
-      return userCoords;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  console.log(ret);
+  return ret;
 }
 
-function fetchCurrentWeatherAction(payload) {
+function fetchCurrentWeather(payload) {
   const rootURL = 'http://api.wunderground.com/api/';
   const WEATHER_API_KEY = '1c2ef46287ff1e67';
-  const MAX_RETRIES = 3
+  const MAX_RETRIES = 3;
   let i = 0;
+  let timeout = null;
 
   return (dispatch, getState) => {
     function getWeather() {
       const state = getState();
 
-      const lat = state.weather.lat;
-      const long = state.weather.long;
+      const lat = state.app.coordinates.lat;
+      const long = state.app.coordinates.long;
       if (i < MAX_RETRIES) {
         i++;
         if (!lat || !long) {
-          timeout = setTimeout(getWeather(), 100)
+          timeout = setTimeout(getWeather(), 100);
+          return;
         }
 
-        return {
+       return dispatch({
           type: actions.FETCH_CURRENT_WEATHER,
           payload,
           meta: {
@@ -71,8 +77,11 @@ function fetchCurrentWeatherAction(payload) {
               method: 'GET'
             }
           }
-        };
+        })
       } else {
+        /* TODO: return type: FETCH CURRENT WEATHER ERROR. Handle with no coords.
+
+         */
         return {};
       }
     }

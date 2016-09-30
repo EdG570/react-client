@@ -30,11 +30,14 @@ export function fetchCurrentWeather() {
       console.log(position);
 
       let userCoords = {
+        type: actions.SET_USER_COORDS,
         lat: position.coords.latitude,
         long: position.coords.longitude
       };
 
-      return fetchCurrentWeatherAction(userCoords);
+      // TODO: Return action that stores userCoords in State
+      //return fetchCurrentWeatherAction(userCoords);
+      return userCoords;
     })
     .catch((error) => {
       console.log(error);
@@ -44,19 +47,39 @@ export function fetchCurrentWeather() {
 function fetchCurrentWeatherAction(payload) {
   const rootURL = 'http://api.wunderground.com/api/';
   const WEATHER_API_KEY = '1c2ef46287ff1e67';
-  const lat = payload.lat;
-  const long = payload.long;
+  const MAX_RETRIES = 3
+  let i = 0;
 
-  return {
-    type: actions.FETCH_CURRENT_WEATHER,
-    payload,
-    meta: {
-      remote: {
-        url: `${rootURL}${WEATHER_API_KEY}/conditions/q/${lat},${long}.json`,
-        method: 'GET'
+  return (dispatch, getState) => {
+    function getWeather() {
+      const state = getState();
+
+      const lat = state.weather.lat;
+      const long = state.weather.long;
+      if (i < MAX_RETRIES) {
+        i++;
+        if (!lat || !long) {
+          timeout = setTimeout(getWeather(), 100)
+        }
+
+        return {
+          type: actions.FETCH_CURRENT_WEATHER,
+          payload,
+          meta: {
+            remote: {
+              url: `${rootURL}${WEATHER_API_KEY}/conditions/q/${lat},${long}.json`,
+              method: 'GET'
+            }
+          }
+        };
+      } else {
+        return {};
       }
     }
+
+    return getWeather();
   };
+
 }
 
 export function fetchForecastWeather() {

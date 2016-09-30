@@ -19,7 +19,7 @@ export function getPosition() {
 }
 
 export function getUserPosition() {
-  let ret = getPosition()
+  return getPosition()
   .then((position) => {
 
     let userCoords = {
@@ -37,9 +37,6 @@ export function getUserPosition() {
   .catch((error) => {
     console.log(error);
   });
-
-  console.log(ret);
-  return ret;
 }
 
 export function fetchCurrentWeather() {

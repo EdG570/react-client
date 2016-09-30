@@ -8,7 +8,6 @@ exports.default = function () {
   var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
   var action = arguments[1];
 
-  console.log(action);
   switch (action.type) {
     case _types.actions.FETCH_CURRENT_WEATHER_SUCCESS:
       return Object.assign({}, state, {

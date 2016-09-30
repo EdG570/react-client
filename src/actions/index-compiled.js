@@ -26,7 +26,7 @@ function getPosition() {
 }
 
 function getUserPosition() {
-  var ret = getPosition().then(function (position) {
+  return getPosition().then(function (position) {
 
     var userCoords = {
       type: _types.actions.FETCH_USER_COORDINATES,
@@ -42,9 +42,6 @@ function getUserPosition() {
   }).catch(function (error) {
     console.log(error);
   });
-
-  console.log(ret);
-  return ret;
 }
 
 function fetchCurrentWeather() {

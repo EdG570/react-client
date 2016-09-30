@@ -6,10 +6,6 @@ import { showWeatherDetails } from '../../../actions/index';
 
 class ForecastList extends Component {
 
-  onActionClick() {
-
-  }
-
   forecastList() {
 
     const forecastDays = this.props.forecastWeather.days.map((day, index) => {

@@ -2,6 +2,7 @@ import { actions } from '../actions/types';
 
 const initialState = {
   days: [],
+  isFetching: true,
   error: ''
 };
 
@@ -13,7 +14,8 @@ export default function(state = initialState, action) {
           if (day.period > 0 && day.period % 2 === 0) {
             return day;
           }
-        })
+        }),
+        isFetching: false
       });
     case actions.FETCH_FORECAST_WEATHER_ERROR:
       return Object.assign({}, state, {

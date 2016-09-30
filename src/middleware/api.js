@@ -19,7 +19,7 @@ export default store => next => action => {
       // data: action.payload
     }))
       .then((response) => {
-        store.dispatch({ type: `${action.type}_SUCCESS`, payload: response.data});
+        store.dispatch({ type: `${action.type}_SUCCESS`, payload: response.data });
       })
       .catch((err) => {
         store.dispatch({ type: `${action.type}_ERROR`, payload: err});

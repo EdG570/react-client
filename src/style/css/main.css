@@ -659,8 +659,6 @@ button:focus {
     .weather-container .weather-box span {
       font-family: 'Lato', sans-serif;
       font-weight: 200; }
-    .weather-container .weather-box .loading-spinner img {
-      width: 4em; }
     .weather-container .weather-box div > span {
       color: #fff;
       display: block;
@@ -695,3 +693,9 @@ button:focus {
       background: none;
       display: block;
       margin: 0 auto; }
+  .weather-container #weather-spinner {
+    width: 5em;
+    margin: 0 auto;
+    padding-top: 5em; }
+  .weather-container #weather-spinner > img {
+    width: 5em; }

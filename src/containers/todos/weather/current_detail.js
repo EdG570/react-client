@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class CurrentDetails extends Component {
+
   roundTemp(temp) {
     return Math.round(temp);
   }
@@ -9,14 +10,6 @@ class CurrentDetails extends Component {
   render() {
     const currentTemp = this.roundTemp(this.props.currentWeather.temp);
     const currentIconID = this.props.currentWeather.iconID;
-
-    if (currentIconID === '' || currentTemp === '') {
-      return (
-        <div className="loading-spinner">
-          <img src="../../src/assets/loading.gif" alt="Loading image" />
-        </div>
-      );
-    }
 
     return (
       <div>

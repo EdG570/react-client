@@ -62,10 +62,6 @@
       font-weight: 200;
     }
 
-    .loading-spinner img {
-      width: 4em;
-    }
-
     div > span {
       color: #fff;
       display: block;
@@ -115,6 +111,16 @@
       display: block;
       margin: 0 auto;
     }
+  }
+
+  #weather-spinner {
+    width: 5em;
+    margin: 0 auto;
+    padding-top: 5em;
+  }
+
+  #weather-spinner > img {
+    width: 5em;
   }
 }
 

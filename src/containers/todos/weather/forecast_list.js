@@ -6,12 +6,19 @@ import { showWeatherDetails } from '../../../actions/index';
 
 class ForecastList extends Component {
 
+  onActionClick() {
+
+  }
+
   forecastList() {
+
     const forecastDays = this.props.forecastWeather.days.map((day, index) => {
-      return <li key={index} onClick={this.showWeatherDetails}>
+
+      return <li key={index} onClick={() => this.props.showWeatherDetails(day)}>
                <img src={`http://icons.wxug.com/i/c/a/${day.icon}.gif`} alt="Weather image" />
                <p>{day.title}</p>
             </li>;
+
     });
 
     return forecastDays;
@@ -26,7 +33,6 @@ class ForecastList extends Component {
       </ul>
     );
   }
-
 };
 
 function mapDispatchToProps(dispatch) {

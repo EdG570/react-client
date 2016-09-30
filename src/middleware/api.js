@@ -22,7 +22,7 @@ export default store => next => action => {
         store.dispatch({ type: `${action.type}_SUCCESS`, payload: response.data});
       })
       .catch((err) => {
-        store.dispatch({ type: `${action.type}_ERROR`, payload: err.data});
+        store.dispatch({ type: `${action.type}_ERROR`, payload: err});
       });
   }
   

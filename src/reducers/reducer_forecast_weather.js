@@ -6,7 +6,6 @@ const initialState = {
 };
 
 export default function(state = initialState, action) {
-  console.log(action);
   switch(action.type) {
     case actions.FETCH_FORECAST_WEATHER_SUCCESS:
       return Object.assign({}, state, {

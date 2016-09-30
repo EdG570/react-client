@@ -1,4 +1,9 @@
-export const actions = {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var actions = exports.actions = {
   FETCH_CURRENT_WEATHER: 'FETCH_CURRENT_WEATHER',
   FETCH_CURRENT_WEATHER_ERROR: 'FETCH_CURRENT_WEATHER_ERROR',
   FETCH_CURRENT_WEATHER_SUCCESS: 'FETCH_CURRENT_WEATHER_SUCCESS',
@@ -15,3 +20,5 @@ export const actions = {
   SHOW_WEATHER_DETAILS: 'SHOW_WEATHER_DETAILS',
   FETCH_USER_COORDINATES: 'FETCH_USER_COORDINATES'
 };
+
+//# sourceMappingURL=types-compiled.js.map

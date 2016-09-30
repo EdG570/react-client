@@ -11,13 +11,11 @@ class CurrentDetails extends Component {
     const currentIconID = this.props.currentWeather.iconID;
 
     if (currentIconID === '' || currentTemp === '') {
-
       return (
         <div className="loading-spinner">
           <img src="../../src/assets/loading.gif" alt="Loading image" />
         </div>
       );
-
     }
 
     return (

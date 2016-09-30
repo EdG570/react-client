@@ -9,6 +9,7 @@ import ForecastDetail from './forecast_detail';
 
 
 class ForecastWeather extends Component {
+
   componentWillMount() {
     this.props.fetchForecastWeather();
   }
@@ -21,7 +22,6 @@ class ForecastWeather extends Component {
       </div>
     );
   }
-
 }
 
 function mapDispatchToProps(dispatch) {

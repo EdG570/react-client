@@ -18,15 +18,9 @@ export function getPosition() {
   });
 }
 
-/*
-  TODO: Refactor geolocation request so it isn't invoked twice,
-  TODO: once for each weather api request.
-*/
-
 export function getUserPosition() {
   let ret = getPosition()
   .then((position) => {
-    console.log(position);
 
     let userCoords = {
       type: actions.FETCH_USER_COORDINATES,
@@ -53,13 +47,9 @@ export function fetchCurrentWeather() {
   const WEATHER_API_KEY = '1c2ef46287ff1e67';
   const MAX_RETRIES = 3;
   let i = 0;
-  let timeout = null;
 
   return (dispatch, getState) => {
       const state = getState();
-
-
-
       const lat = state.app.coordinates.lat;
       const long = state.app.coordinates.long;
       if (i < MAX_RETRIES) {
@@ -91,7 +81,6 @@ export function fetchForecastWeather() {
 
   return getPosition()
   .then((position) => {
-    console.log(position);
 
     let userCoords = {
       lat: position.coords.latitude,
@@ -161,11 +150,11 @@ function SignupAction(payload) {
   }
 }
 
-export function showWeatherDetails(index) {
-  console.log('Action creator initiated!');
+export function showWeatherDetails(day) {
+  console.log('DAY: ' + day);
   return {
     type: actions.SHOW_WEATHER_DETAILS,
-    payload: index
+    payload: day
   }
 }
 

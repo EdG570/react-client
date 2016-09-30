@@ -5,9 +5,10 @@ import { connect } from 'react-redux';
 class ForecastDetail extends Component {
 
   render() {
+
     return (
-      <div>
-        <p>{}</p>
+      <div className="forecast-details">
+        <p>{ this.props.weatherDetails.day.fcttext }</p>
       </div>
     );
   }

@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
-import UserDetailsCont from './todos/user_details_container';
+import UserDetailsCont from './user_details_container';
 import WeatherContainer from './todos/weather/weather_container';
 
-export default class TodosUI extends Component {
-  render() {
+const TodosMain = () => {
     return (
       <div className="clearfix">
         <UserDetailsCont />
         <WeatherContainer />
       </div>
     );
-  }
-}
+};
+
+export default TodosMain;

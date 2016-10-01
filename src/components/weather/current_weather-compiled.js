@@ -18,13 +18,15 @@ var _current_detail2 = _interopRequireDefault(_current_detail);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var CurrentWeather = function CurrentWeather() {
+var CurrentWeather = function CurrentWeather(_ref) {
+  var weather = _ref.weather;
+
 
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(_current_header2.default, null),
-    _react2.default.createElement(_current_detail2.default, null)
+    _react2.default.createElement(_current_header2.default, { weather: weather }),
+    _react2.default.createElement(_current_detail2.default, { weather: weather })
   );
 };
 

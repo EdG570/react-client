@@ -14,15 +14,15 @@ var _redux = require('redux');
 
 var _reactRedux = require('react-redux');
 
-var _current_weather = require('./current_weather');
+var _current_weather = require('../../components/weather/current_weather');
 
 var _current_weather2 = _interopRequireDefault(_current_weather);
 
-var _current_day = require('./current_day');
+var _current_day = require('../../components/weather/current_day');
 
 var _current_day2 = _interopRequireDefault(_current_day);
 
-var _forecast_weather = require('./forecast_weather');
+var _forecast_weather = require('../../components/weather/forecast_weather');
 
 var _forecast_weather2 = _interopRequireDefault(_forecast_weather);
 
@@ -67,8 +67,10 @@ var Weather = function (_Component) {
         'div',
         { className: 'weather-box' },
         _react2.default.createElement(_current_day2.default, null),
-        _react2.default.createElement(_current_weather2.default, null),
-        _react2.default.createElement(_forecast_weather2.default, null)
+        _react2.default.createElement(_current_weather2.default, { weather: this.props.currentWeather }),
+        _react2.default.createElement(_forecast_weather2.default, { weather: this.props.forecastWeather,
+          forecastDetails: this.props.forecastDetails
+        })
       );
     }
   }]);
@@ -82,6 +84,7 @@ function mapStateToProps(state) {
   return {
     forecastWeather: state.forecastWeather,
     currentWeather: state.currentWeather,
+    forecastDetails: state.forecastDetails,
     app: state.app
   };
 }
@@ -89,9 +92,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return (0, _redux.bindActionCreators)({
     fetchCurrentWeather: _index.fetchCurrentWeather,
-    fetchForecastWeather: _index.fetchForecastWeather,
-    fetchUserIP: fetchUserIP,
-    fetchUserLocation: fetchUserLocation
+    fetchForecastWeather: _index.fetchForecastWeather
   }, dispatch);
 }
 

@@ -5,10 +5,14 @@ import { bindActionCreators } from 'redux';
 import { showWeatherDetails } from '../../../actions/index';
 
 class ForecastList extends Component {
+  constructor(props) {
+    super(props);
+
+  }
 
   forecastList() {
 
-    const forecastDays = this.props.forecastWeather.days.map((day, index) => {
+    const forecastDays = this.props.weather.days.map((day, index) => {
 
       return <li key={index} onClick={() => this.props.showWeatherDetails(day)}>
                <img src={`http://icons.wxug.com/i/c/a/${day.icon}.gif`} alt="Weather image" />
@@ -35,10 +39,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ showWeatherDetails: showWeatherDetails }, dispatch);
 }
 
-function mapStateToProps(state) {
-  return {
-    forecastWeather: state.forecastWeather
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ForecastList);
+export default connect(null, mapDispatchToProps)(ForecastList);

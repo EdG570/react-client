@@ -19,6 +19,7 @@ const CurrentDay = () => {
   const currentDay = convertIndexToDay(getCurrentDayIndex());
 
   return (
+
     <h3>{currentDay}</h3>
   );
 };

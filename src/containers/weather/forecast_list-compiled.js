@@ -12,6 +12,10 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = require('react-redux');
 
+var _redux = require('redux');
+
+var _index = require('../../../actions/index');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -20,53 +24,60 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var CurrentDetails = function (_Component) {
-  _inherits(CurrentDetails, _Component);
+var ForecastList = function (_Component) {
+  _inherits(ForecastList, _Component);
 
-  function CurrentDetails() {
-    _classCallCheck(this, CurrentDetails);
+  function ForecastList(props) {
+    _classCallCheck(this, ForecastList);
 
-    return _possibleConstructorReturn(this, (CurrentDetails.__proto__ || Object.getPrototypeOf(CurrentDetails)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (ForecastList.__proto__ || Object.getPrototypeOf(ForecastList)).call(this, props));
   }
 
-  _createClass(CurrentDetails, [{
-    key: 'roundTemp',
-    value: function roundTemp(temp) {
-      return Math.round(temp);
+  _createClass(ForecastList, [{
+    key: 'forecastList',
+    value: function forecastList() {
+      var _this2 = this;
+
+      var forecastDays = this.props.weather.days.map(function (day, index) {
+
+        return _react2.default.createElement(
+          'li',
+          { key: index, onClick: function onClick() {
+              return _this2.props.showWeatherDetails(day);
+            } },
+          _react2.default.createElement('img', { src: 'http://icons.wxug.com/i/c/a/' + day.icon + '.gif', alt: 'Weather image' }),
+          _react2.default.createElement(
+            'p',
+            null,
+            day.title
+          )
+        );
+      });
+
+      return forecastDays;
     }
   }, {
     key: 'render',
     value: function render() {
-      var currentTemp = this.roundTemp(this.props.currentWeather.temp);
-      var currentIconID = this.props.currentWeather.iconID;
+      var list = this.forecastList();
 
       return _react2.default.createElement(
-        'div',
+        'ul',
         null,
-        _react2.default.createElement(
-          'div',
-          { className: 'clearfix current-weather' },
-          _react2.default.createElement('img', { src: 'http://icons.wxug.com/i/c/a/' + currentIconID + '.gif', alt: 'Weather image' }),
-          _react2.default.createElement(
-            'h2',
-            null,
-            currentTemp,
-            '°F'
-          )
-        )
+        list
       );
     }
   }]);
 
-  return CurrentDetails;
+  return ForecastList;
 }(_react.Component);
 
-function mapStateToProps(state) {
-  return {
-    currentWeather: state.currentWeather
-  };
+;
+
+function mapDispatchToProps(dispatch) {
+  return (0, _redux.bindActionCreators)({ showWeatherDetails: _index.showWeatherDetails }, dispatch);
 }
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(CurrentDetails);
+exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(ForecastList);
 
-//# sourceMappingURL=current_detail-compiled.js.map
+//# sourceMappingURL=forecast_list-compiled.js.map

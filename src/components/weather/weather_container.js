@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Weather from './weather';
+import Weather from '../../containers/weather/weather';
 
 export default class WeatherContainer extends Component {
   render() {

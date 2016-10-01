@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 import CurrentHeader from './current_header';
 import CurrentDetails from './current_detail';
 
-const CurrentWeather = () => {
+const CurrentWeather = ({ weather }) => {
 
     return (
       <div>
-        <CurrentHeader />
-        <CurrentDetails />
+        <CurrentHeader weather={ weather }/>
+        <CurrentDetails weather={ weather }/>
       </div>
     );
 

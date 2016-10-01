@@ -1,14 +1,12 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _react = require('react');
+var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = require('react-redux');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20,15 +18,15 @@ var CurrentHeader = function CurrentHeader(_ref) {
   var city = weather.location.toUpperCase();
 
   return _react2.default.createElement(
-    'p',
-    { className: 'clearfix' },
+    "p",
+    { className: "clearfix" },
     _react2.default.createElement(
-      'span',
+      "span",
       null,
       city
     ),
     _react2.default.createElement(
-      'span',
+      "span",
       null,
       currentDescription
     )

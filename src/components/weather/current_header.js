@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+
 
 const CurrentHeader = ({ weather }) => {
 

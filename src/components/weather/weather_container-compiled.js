@@ -43,7 +43,7 @@ var WeatherContainer = function (_Component) {
   }]);
 
   return WeatherContainer;
-}(_react.Component);
+}(Component);
 
 exports.default = WeatherContainer;
 

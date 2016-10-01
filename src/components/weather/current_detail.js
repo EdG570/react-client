@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const CurrentDetails = ({ weather }) => {
   const currentTemp = roundTemp(weather.temp);

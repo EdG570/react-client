@@ -37,6 +37,10 @@ var roundTemp = function roundTemp(temp) {
   return Math.round(temp);
 };
 
+CurrentDetails.propTypes = {
+  weather: _react2.default.PropTypes.object.isRequired
+};
+
 exports.default = CurrentDetails;
 
 //# sourceMappingURL=current_detail-compiled.js.map

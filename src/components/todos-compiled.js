@@ -8,11 +8,11 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _user_details_container = require('./user_details_container');
+var _user_details_container = require('./todos/user_details_container');
 
 var _user_details_container2 = _interopRequireDefault(_user_details_container);
 
-var _weather_container = require('./todos/weather/weather_container');
+var _weather_container = require('./weather/weather_container');
 
 var _weather_container2 = _interopRequireDefault(_weather_container);
 
@@ -29,4 +29,4 @@ var TodosMain = function TodosMain() {
 
 exports.default = TodosMain;
 
-//# sourceMappingURL=todos_main-compiled.js.map
+//# sourceMappingURL=todos-compiled.js.map

@@ -35,6 +35,10 @@ var CurrentHeader = function CurrentHeader(_ref) {
   );
 };
 
+CurrentHeader.propTypes = {
+  weather: _react2.default.PropTypes.object.isRequired
+};
+
 exports.default = CurrentHeader;
 
 //# sourceMappingURL=current_header-compiled.js.map

@@ -30,9 +30,9 @@ var _home = require('./components/home');
 
 var _home2 = _interopRequireDefault(_home);
 
-var _todos_main = require('./components/todos/todos_main');
+var _todos = require('./components/todos');
 
-var _todos_main2 = _interopRequireDefault(_todos_main);
+var _todos2 = _interopRequireDefault(_todos);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -44,7 +44,7 @@ exports.default = _react2.default.createElement(
   ';',
   _react2.default.createElement(_reactRouter.Route, { path: '/forgotpassword', component: _forgot_password2.default }),
   _react2.default.createElement(_reactRouter.Route, { path: '/signup', component: _signup2.default }),
-  _react2.default.createElement(_reactRouter.Route, { path: '/todos', component: _todos_main2.default })
+  _react2.default.createElement(_reactRouter.Route, { path: '/todos', component: _todos2.default })
 );
 
 //# sourceMappingURL=routes-compiled.js.map

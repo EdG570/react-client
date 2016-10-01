@@ -6,7 +6,7 @@ import SignIn from './containers/auth/signin';
 import PasswordReset from './containers/auth/forgot_password';
 import SignUp from './containers/auth/signup';
 import Home from './components/home';
-import TodosUI from './components/todos/todos_main';
+import TodosUI from './components/todos';
 
 export default (
   <Route path="/" component={App}>

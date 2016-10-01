@@ -25,6 +25,10 @@ var ForecastDetail = function ForecastDetail(_ref) {
   );
 };
 
+ForecastDetail.proptypes = {
+  forecastDetails: _react2.default.PropTypes.object.isRequired
+};
+
 exports.default = ForecastDetail;
 
 //# sourceMappingURL=forecast_detail-compiled.js.map

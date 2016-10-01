@@ -14,7 +14,7 @@ var _reactRedux = require('react-redux');
 
 var _redux = require('redux');
 
-var _index = require('../../../actions/index');
+var _index = require('../../actions/index');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

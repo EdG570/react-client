@@ -18,4 +18,8 @@ const roundTemp = (temp) => {
   return Math.round(temp);
 };
 
+CurrentDetails.propTypes = {
+  weather: React.PropTypes.object.isRequired
+};
+
 export default CurrentDetails;

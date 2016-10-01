@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { showWeatherDetails } from '../../../actions/index';
+import { showWeatherDetails } from '../../actions/index';
 
 class ForecastList extends Component {
   constructor(props) {

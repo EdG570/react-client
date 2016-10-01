@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const ForecastDetail = ({ forecastDetails }) => {
 
@@ -8,6 +8,10 @@ const ForecastDetail = ({ forecastDetails }) => {
     </div>
   );
 
+};
+
+ForecastDetail.proptypes = {
+  forecastDetails: React.PropTypes.object.isRequired
 };
 
 export default ForecastDetail;

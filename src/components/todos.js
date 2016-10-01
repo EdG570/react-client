@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import UserDetailsCont from './user_details_container';
-import WeatherContainer from './todos/weather/weather_container';
+import UserDetailsCont from './todos/user_details_container';
+import WeatherContainer from './weather/weather_container';
 
 const TodosMain = () => {
     return (

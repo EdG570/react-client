@@ -12,4 +12,8 @@ const CurrentHeader = ({ weather }) => {
 
 };
 
+CurrentHeader.propTypes = {
+  weather: React.PropTypes.object.isRequired
+};
+
 export default CurrentHeader;

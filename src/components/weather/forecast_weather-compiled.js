@@ -31,6 +31,12 @@ var ForecastWeather = function ForecastWeather(_ref) {
   );
 };
 
+ForecastWeather.propTypes = {
+  weather: _react2.default.PropTypes.object.isRequired,
+  forecastDetails: _react2.default.PropTypes.object.isRequired
+
+};
+
 exports.default = ForecastWeather;
 
 //# sourceMappingURL=forecast_weather-compiled.js.map

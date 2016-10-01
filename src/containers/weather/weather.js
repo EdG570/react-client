@@ -6,8 +6,8 @@ import CurrentWeather from '../../components/weather/current_weather';
 import CurrentDay from '../../components/weather/current_day';
 import ForecastWeather from '../../components/weather/forecast_weather';
 
-import { fetchCurrentWeather } from '../../../actions/index';
-import { fetchForecastWeather } from '../../../actions/index';
+import { fetchCurrentWeather } from '../../actions/index';
+import { fetchForecastWeather } from '../../actions/index';
 
 class Weather extends Component {
 

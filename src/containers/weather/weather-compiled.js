@@ -26,7 +26,7 @@ var _forecast_weather = require('../../components/weather/forecast_weather');
 
 var _forecast_weather2 = _interopRequireDefault(_forecast_weather);
 
-var _index = require('../../../actions/index');
+var _index = require('../../actions/index');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

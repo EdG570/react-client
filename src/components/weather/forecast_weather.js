@@ -14,4 +14,10 @@ const ForecastWeather = ({ weather, forecastDetails }) => {
 
 };
 
+ForecastWeather.propTypes = {
+  weather: React.PropTypes.object.isRequired,
+  forecastDetails: React.PropTypes.object.isRequired
+
+};
+
 export default ForecastWeather;

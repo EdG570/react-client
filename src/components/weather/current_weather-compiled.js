@@ -21,13 +21,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var CurrentWeather = function CurrentWeather(_ref) {
   var weather = _ref.weather;
 
-
   return _react2.default.createElement(
     'div',
     null,
     _react2.default.createElement(_current_header2.default, { weather: weather }),
     _react2.default.createElement(_current_detail2.default, { weather: weather })
   );
+};
+
+CurrentWeather.propTypes = {
+  weather: _react2.default.PropTypes.object.isRequired
 };
 
 exports.default = CurrentWeather;

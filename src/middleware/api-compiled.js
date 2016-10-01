@@ -17,6 +17,10 @@ exports.default = function (store) {
         var options = {};
         var state = store.getState();
         var request = action.meta.remote;
+        var query = {
+          method: request.method,
+          url: request.url
+        };
 
         if (state.app.token) {
           window.localStorage.set('token', state.app.token);
@@ -25,11 +29,11 @@ exports.default = function (store) {
           };
         }
 
-        (0, _axios2.default)(Object.assign(options, {
-          method: request.method,
-          url: request.url
-          // data: action.payload
-        })).then(function (response) {
+        if (action.payload) {
+          query.data = action.payload;
+        }
+
+        (0, _axios2.default)(Object.assign(options, query)).then(function (response) {
           store.dispatch({ type: action.type + '_SUCCESS', payload: response.data });
         }).catch(function (err) {
           store.dispatch({ type: action.type + '_ERROR', payload: err });

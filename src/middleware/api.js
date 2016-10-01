@@ -5,6 +5,10 @@ export default store => next => action => {
     let options = {};
     const state = store.getState();
     const request = action.meta.remote;
+    const query = {
+      method: request.method,
+      url: request.url
+    };
 
     if (state.app.token) {
       window.localStorage.set('token', state.app.token);
@@ -12,12 +16,12 @@ export default store => next => action => {
         authorization: `Bearer ${state.app.token}`
       }
     }
+
+    if (action.payload) {
+      query.data = action.payload;
+    }
     
-    axios(Object.assign(options, {
-      method: request.method,
-      url: request.url
-      // data: action.payload
-    }))
+    axios(Object.assign(options, query))
       .then((response) => {
         store.dispatch({ type: `${action.type}_SUCCESS`, payload: response.data });
       })

@@ -102,7 +102,6 @@ function fetchCurrentWeather() {
 
       return dispatch({
         type: _types.actions.FETCH_CURRENT_WEATHER,
-        payload: {},
         meta: {
           remote: {
             url: '' + rootURL + WEATHER_API_KEY + '/conditions/q/' + lat + ',' + long + '.json',
@@ -142,7 +141,6 @@ function fetchForecastWeatherAction(payload) {
 
   return {
     type: _types.actions.FETCH_FORECAST_WEATHER,
-    payload: payload,
     meta: {
       remote: {
         url: '' + rootURL + WEATHER_API_KEY + '/forecast/q/' + lat + ',' + long + '.json',

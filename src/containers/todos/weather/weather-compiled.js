@@ -81,14 +81,17 @@ var Weather = function (_Component) {
 function mapStateToProps(state) {
   return {
     forecastWeather: state.forecastWeather,
-    currentWeather: state.currentWeather
+    currentWeather: state.currentWeather,
+    app: state.app
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return (0, _redux.bindActionCreators)({
     fetchCurrentWeather: _index.fetchCurrentWeather,
-    fetchForecastWeather: _index.fetchForecastWeather
+    fetchForecastWeather: _index.fetchForecastWeather,
+    fetchUserIP: fetchUserIP,
+    fetchUserLocation: fetchUserLocation
   }, dispatch);
 }
 

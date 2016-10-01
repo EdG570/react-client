@@ -24,7 +24,6 @@ class Weather extends Component {
           <img src="../../src/assets/loading.gif" alt="Loading image" />
         </div>
       );
-
     }
 
     return (
@@ -41,14 +40,17 @@ class Weather extends Component {
 function mapStateToProps(state) {
   return {
     forecastWeather: state.forecastWeather,
-    currentWeather: state.currentWeather
+    currentWeather: state.currentWeather,
+    app: state.app
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     fetchCurrentWeather: fetchCurrentWeather,
-    fetchForecastWeather: fetchForecastWeather
+    fetchForecastWeather: fetchForecastWeather,
+    fetchUserIP: fetchUserIP,
+    fetchUserLocation: fetchUserLocation
   }, dispatch);
 }
 

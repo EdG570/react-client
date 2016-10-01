@@ -3,6 +3,9 @@ import { actions } from '../actions/types';
 const initialState = {
   token: null,
   coordinates: { lat: null, long: null },
+  userIP: '',
+  userCity: '',
+  userCC: '',
   error: null
 };
 
@@ -20,7 +23,7 @@ export default function(state = initialState, action) {
       });
     case actions.SIGNIN_ERROR:
       return Object.assign({}, state, {
-
+        error: action.payload
       });
     case actions.SIGNUP_SUCCESS:
       window.localStorage.setItem('token', action.payload);
@@ -29,7 +32,7 @@ export default function(state = initialState, action) {
       });
     case actions.SIGNUP_ERROR:
       return Object.assign({}, state, {
-
+        error: action.payload
       });
     case actions.FETCH_USER_COORDINATES:
       return Object.assign({}, state, {
@@ -38,6 +41,24 @@ export default function(state = initialState, action) {
           long: action.payload.longitude
         }
       });
+      case actions.FETCH_USER_IP_SUCCESS:
+        return Object.assign({}, state, {
+          userIP: action.payload.ip
+        });
+      case actions.FETCH_USER_IP_ERROR:
+        return Object.assign({}, state, {
+          error: action.payload
+        });
+      case actions.FETCH_USER_LOCATION_SUCCESS:
+        return Object.assign({}, state, {
+          userCity: action.payload.city,
+          userCC: action.payload.countryCode
+        });
+      case actions.FETCH_USER_LOCATION_ERROR:
+        return Object.assign({}, state, {
+          error: action.payload
+        });
+
     default:
       return state;
   }

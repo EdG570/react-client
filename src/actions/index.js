@@ -18,6 +18,42 @@ export function getPosition() {
   });
 }
 
+function fetchUserIPAction() {
+  const rootURL = 'https://api.ipify.org?format=json';
+
+  return {
+    type: actions.FETCH_USER_IP,
+    meta: {
+      remote: {
+        url: rootURL,
+        method: 'GET'
+      }
+    }
+  };
+}
+
+export function fetchUserLocation(ip) {
+  return fetchUserLocationAction(ip);
+}
+
+function fetchUserLocationAction(ip) {
+  const rootURL = 'http://ip-api.com/json';
+
+  return {
+    type: actions.FETCH_USER_LOCATION,
+    meta: {
+      remote: {
+        url: `${rootURL}/${ip}`,
+        method: 'GET'
+      }
+    }
+  };
+}
+
+export function fetchUserIP() {
+  return fetchUserIPAction();
+}
+
 export function getUserPosition() {
   return getPosition()
   .then((position) => {
@@ -66,6 +102,8 @@ export function fetchCurrentWeather() {
           }
         })
       } else {
+
+
         /* TODO: return type: FETCH CURRENT WEATHER ERROR. Handle with no coords.
 
          */

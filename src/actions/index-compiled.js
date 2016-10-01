@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.getPosition = getPosition;
+exports.fetchUserLocation = fetchUserLocation;
+exports.fetchUserIP = fetchUserIP;
 exports.getUserPosition = getUserPosition;
 exports.fetchCurrentWeather = fetchCurrentWeather;
 exports.fetchForecastWeather = fetchForecastWeather;
@@ -23,6 +25,42 @@ function getPosition() {
       reject(error);
     });
   });
+}
+
+function fetchUserIPAction() {
+  var rootURL = 'https://api.ipify.org?format=json';
+
+  return {
+    type: _types.actions.FETCH_USER_IP,
+    meta: {
+      remote: {
+        url: rootURL,
+        method: 'GET'
+      }
+    }
+  };
+}
+
+function fetchUserLocation(ip) {
+  return fetchUserLocationAction(ip);
+}
+
+function fetchUserLocationAction(ip) {
+  var rootURL = 'http://ip-api.com/json';
+
+  return {
+    type: _types.actions.FETCH_USER_LOCATION,
+    meta: {
+      remote: {
+        url: rootURL + '/' + ip,
+        method: 'GET'
+      }
+    }
+  };
+}
+
+function fetchUserIP() {
+  return fetchUserIPAction();
 }
 
 function getUserPosition() {
@@ -73,6 +111,7 @@ function fetchCurrentWeather() {
         }
       });
     } else {
+
       /* TODO: return type: FETCH CURRENT WEATHER ERROR. Handle with no coords.
         */
       return {};
